@@ -66,36 +66,40 @@ label {
 				<span class="bank-certification">은행계좌 인증 : </span>
 				<div class="row justify-content-start">
 					<div class="form-group row mt-5">
-						<label for="full_name" class="col-md col-form-label text-md-right">예금주
+						<label for="username" class="col-md col-form-label text-md-right">예금주
 							: </label>
 						<div class="col-md-8">
-							<input type="text" id="full_name" class="form-control"
-								name="full-name" size="60">
+							<input type="text" id="username" class="form-control"
+								name="username" size="60">
 						</div>
 					</div>
 				</div>
 				<div class="row justify-content-start">
 					<div class="form-group row mt-3">
-						<label for="full_name" class="col-md col-form-label text-md-right">은행명
+						<label for="account_bank" class="col-md col-form-label text-md-right">은행명
 							: </label>
 						<div class="col-md-8">
-							<input type="text" id="full_name" class="form-control"
-								name="full-name" size="60" placeholder="은행명을 입력해주세요.">
+							<input type="text" id="account_bank" class="form-control"
+								name="account_bank" size="60" placeholder="은행명을 입력해주세요.">
 						</div>
 					</div>
 				</div>
 				<div class="row justify-content-start">
 					<div class="form-group row mt-3">
-						<label for="full_name" class="col-md col-form-label text-md-right"
-							style="margin-left: -15px;">계좌번호 : </label>
+						<label for="account_number" class="col-md col-form-label text-md-right">계좌번호 : </label>
 						<div class="col-md-8">
-							<input type="text" id="full_name" class="form-control"
-								name="full-name" size="60">
+							<input type="text" id="account_number" class="form-control"
+								name="account_number" size="60">
 						</div>
 					</div>
 				</div>
-				<a href="${path}/page/accountcomplete.do"
-					class="btn btn-primary bank-ok">등록</a>
+				<div class="row justify-content-start">
+					<div class="form-group row mt-3">
+						<div class="col-md-8">
+							<a href="${path}/page/accountcomplete.do" class="btn btn-primary bank-ok">등록</a>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
 	<%@ include file="../include/frame/site-footer.jsp"%>

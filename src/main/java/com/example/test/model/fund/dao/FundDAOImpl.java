@@ -3,7 +3,6 @@ package com.example.test.model.fund.dao;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -42,6 +41,14 @@ public class FundDAOImpl implements FundDAO {
 	@Override
 	public FundDTO view(int bno) throws Exception {
 		return session.selectOne("fund.view", bno);
+	}
+	@Override
+	public void like(int bno) throws Exception {
+		session.update("fund.like", bno);		
+	}
+	@Override
+	public void unlike(int bno) throws Exception {
+		session.update("fund.unlike", bno);
 	}
 
 }

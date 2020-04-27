@@ -121,8 +121,8 @@
 		  		</div>
 		  		<div class="col-sm">
 		  			<p class="tier">좋아요<i class="fa fa-heart"></i></p>
-		  			<p><span class="second-tier">3</span></p>
-		  			<a href="#">좋아요한 프로젝트</a>
+		  			<p><span class="second-tier">${like_count}</span></p>
+		  			<a href="${path}/user/user_like.do">좋아요한 프로젝트</a>
 		  		</div>
 		  	</div>
 		   </div>
@@ -131,7 +131,7 @@
             <div class="col">
             	<c:choose>
 		  					<c:when test="${dto.account_chk == 0}">
-		  						<span class="none-Enrollment">아직 <strong>계좌등록</strong>을 안하셨나요?</span><a href="#" class="Enrollment"> <i class="fa fa-angle-right"></i> 지금당장하기</a>
+		  						<span class="none-Enrollment">아직 <strong>계좌등록</strong>을 안하셨나요?</span><a href="${path}/account/append_account.do" class="Enrollment"> <i class="fa fa-angle-right"></i> 지금당장하기</a>
 		  					</c:when>
 		  					<c:otherwise>
 		  						<span class="none-Enrollment">${dto.account_chk}개의 계좌가 있습니다.</span><a href="#" class="Enrollment"> <i class="fa fa-angle-right"></i>계좌확인</a>

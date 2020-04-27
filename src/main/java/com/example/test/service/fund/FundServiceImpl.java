@@ -10,12 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.test.model.fund.dao.FundDAO;
 import com.example.test.model.fund.dto.FundDTO;
+import com.example.test.model.like.dao.Like_FundDAO;
+import com.example.test.model.like.dto.Like_FundDTO;
 
 @Service
 public class FundServiceImpl implements FundService {
 
 	@Inject
 	FundDAO fundDao;
+	@Inject
+	Like_FundDAO likeDao;
 	
 	@Override
 	public List<FundDTO> supportList() throws Exception {
@@ -56,6 +60,32 @@ public class FundServiceImpl implements FundService {
 			fundDao.increateViewcnt(bno);
 			session.setAttribute("cnt_update_time_"+bno+userid, current_time);
 		}	
+		
+	}
+	
+	@Override
+	@Transactional
+	public void like(int bno, HttpSession session){
+		Like_FundDTO dto=new Like_FundDTO();
+		dto.setBno(bno);
+		String userid=(String)session.getAttribute("userid");
+		dto.setUserid(userid);
+		int result=likeDao.confirm_like(dto);
+		if(result==0) {
+			likeDao.like_fund(dto);		
+			try {
+				fundDao.like(bno);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}else {
+			likeDao.cancel_like(bno);
+			try {
+				fundDao.unlike(bno);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 

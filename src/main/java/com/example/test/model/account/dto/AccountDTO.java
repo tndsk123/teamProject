@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class AccountDTO {
 
+	private int cno;
 	private String userid;
+	private String username;
 	private String account_bank;
 	private String account_passwd;
 	private String account_number;
@@ -12,6 +14,19 @@ public class AccountDTO {
 	private String buy_passwd;
 	private int primary_kard;
 	private Date append_date;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getCno() {
+		return cno;
+	}
+	public void setCno(int cno) {
+		this.cno = cno;
+	}
 	public String getUserid() {
 		return userid;
 	}
@@ -62,9 +77,10 @@ public class AccountDTO {
 	}
 	@Override
 	public String toString() {
-		return "AccountDTO [userid=" + userid + ", account_bank=" + account_bank + ", account_passwd=" + account_passwd
-				+ ", account_number=" + account_number + ", account=" + account + ", buy_passwd=" + buy_passwd
-				+ ", primary_kard=" + primary_kard + ", append_date=" + append_date + "]";
+		return "AccountDTO [cno=" + cno + ", userid=" + userid + ", username=" + username + ", account_bank="
+				+ account_bank + ", account_passwd=" + account_passwd + ", account_number=" + account_number
+				+ ", account=" + account + ", buy_passwd=" + buy_passwd + ", primary_kard=" + primary_kard
+				+ ", append_date=" + append_date + "]";
 	}
 
 	

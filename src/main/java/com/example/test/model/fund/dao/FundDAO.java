@@ -14,4 +14,6 @@ public interface FundDAO {
 	public List<FundDTO> todayList() throws Exception;
 	public void increateViewcnt(int bno) throws Exception;
 	public FundDTO view(int bno) throws Exception;
+	public void like(int bno) throws Exception;
+	public void unlike(int bno) throws Exception;
 }

@@ -30,8 +30,8 @@
 	border: none;
 	background: none;
 	font-size: 17px;
-    font-weight: 300;
-    color: #ff4d4d;
+  font-weight: 300;
+  color: #ff4d4d;
 }
 
 .mycouponList-container {
@@ -60,8 +60,8 @@
 .jumbotron div > .couponHelpmessage-Title {
  	margin-bottom: 8px;
  	color: #44484b;
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 .coupontitle {
 	font-size: 35px;
@@ -123,7 +123,6 @@
 
 .fundingcouponmoney {
 	margin: 4px 0 8px;
-	line-height: 18px;
 	color: #3359cc;
 	font-size: 21px;
 	font-weight: 700;
@@ -176,7 +175,8 @@
 				<i class="fa fa-plus-circle"></i> 쿠폰 등록하기
 			</button>
 		</div>
-		<div class="row justify-content-center mt-5">
+	</div>
+	<div class="container">
 			<c:choose>
 				<c:when test="${count == 0}">
 					<span class="couponList-message">사용 가능한 쿠폰이 없습니다.</span>			
@@ -184,7 +184,7 @@
 				<c:otherwise>
 					<c:forEach var="var" items="${list}">
 
-						<div class="row mt-5">
+						<div class="row mt-1">
 							<div class="col-md-8 col-sm-4">
 								<div class="jumbotron" style="background-color: #fff;">
 									<p class="funingname">${var.c_division}</p>
@@ -213,8 +213,7 @@
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-		</div>
-		<div class="row">
+		<div class="row mt-1">
 			<div class="jumbotron" style="background-color: #ffffff;">
 				<div>
 					<p class="couponHelpmessage-Title">IF you 쿠폰 이용안내</p>

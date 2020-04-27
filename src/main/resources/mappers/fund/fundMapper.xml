@@ -6,35 +6,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="fund">
 	<select id="likeList" resultType="com.example.test.model.fund.dto.FundDTO">
 		select A.* from (select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img,ceil(start_date-sysdate) open_date
+		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img,ceil(start_date-sysdate) open_date,p_detail_division
 		from fund order by good desc) A 
 		where approve=1 and open_date &lt; 0 and rownum &lt; 6
 	</select>
 	<select id="viewcntList" resultType="com.example.test.model.fund.dto.FundDTO">
 		select A.* from (select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img,ceil(start_date-sysdate) open_date
+		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img,ceil(start_date-sysdate) open_date,p_detail_division
 		from fund order by viewcnt desc) A 
 		where approve=1 and open_date &lt; 0 and rownum &lt; 6
 	</select>
 	<select id="todayList" resultType="com.example.test.model.fund.dto.FundDTO">
 		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, approve, title_img
+		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, approve, title_img,p_detail_division
 		from fund where approve=1 and (start_date-sysdate) &lt; 0 and rownum &lt; 6
 		and TO_CHAR(start_date,'YYYYMMDD') = TO_CHAR(SYSDATE,'YYYYMMDD')
 		order by progress desc
 	</select>
 	<select id="supportList" resultType="com.example.test.model.fund.dto.FundDTO">
 		select A.* from (select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date
+		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date,p_detail_division
 		from fund order by support desc) A 
+		where approve=1 and open_date &lt; 0 and rownum &lt; 6
+	</select>
+	<select id="progresstList" resultType="com.example.test.model.fund.dto.FundDTO">
+		select A.* from (select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,
+		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date,p_detail_division
+		from fund order by progress desc) A 
 		where approve=1 and open_date &lt; 0 and rownum &lt; 6
 	</select>
 	<update id="increateViewcnt">
 		update fund set viewcnt=viewcnt+1 where bno=#{bno}
 	</update>
 	<select id="view" resultType="com.example.test.model.fund.dto.FundDTO">
-		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,title_img,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, limit, ceil(end_date-sysdate) open_date, approve
+		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,title_img,title_img2,title_img3,
+		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, limit, ceil(end_date-sysdate) open_date, approve,p_detail_division,
+		content_point_title,content_point_img,content_point, content_business_title,content_business_img,content_business,
+		content_detail_title,content_detail_img,content_detail
 		from fund where bno=#{bno} 
 	</select>
+	<update id="like">
+		update fund set good=good+1 where bno=#{bno}
+	</update>
+	<update id="unlike">
+		update fund set good=good-1 where bno=#{bno}
+	</update>
 </mapper>

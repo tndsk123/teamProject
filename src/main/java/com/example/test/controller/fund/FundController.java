@@ -27,10 +27,7 @@ public class FundController {
 	public String apply_project() {
 		return "project_write/apply_project";
 	}
-	@RequestMapping("invest.do")
-	public String invest_list() {
-		return "invest/invest_list";
-	}
+	
 	@RequestMapping("bond_list.do")
 	public String bond_list() {
 		return "invest/bond/bond_list";
@@ -44,11 +41,11 @@ public class FundController {
 		return "invest/commingsoon/comming_soon_list";
 	}
 	
-	@RequestMapping("view/{bno}")
+	@RequestMapping("invest_detail/{bno}")
 	public ModelAndView view(@PathVariable("bno") int bno, HttpSession session) throws Exception {
 		FundDTO dto=fundService.view(bno,session);
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("fund/fund_view");
+		mav.setViewName("invest/invest_detail");
 		mav.addObject("list", dto);
 		/*
 		 * mav.addObject("grade", boardgradeService.list(bno)); mav.addObject("company",
@@ -69,5 +66,22 @@ public class FundController {
 		 * gradeService.grade_check(grade)); mav.setViewName("board/buy");
 		 */
 		return mav;
+	}
+	
+	@RequestMapping("invest.do")
+	public ModelAndView invest_list(ModelAndView mav) throws Exception{
+		mav.addObject("support_list", fundService.supportList());
+		mav.addObject("cnt_list", fundService.viewcntList());
+		mav.addObject("good_list", fundService.likeList());
+		mav.addObject("today_list", fundService.todayList());
+		mav.setViewName("invest/invest_list");
+		return mav;
+	}
+	
+	@RequestMapping("like_fund.do")
+	public String like_fund(int bno, HttpSession session) {
+		System.out.println("hi");
+		fundService.like(bno, session);
+		return "redirect:/fund/invest_detail/"+bno;
 	}
 }

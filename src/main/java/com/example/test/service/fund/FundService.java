@@ -13,4 +13,5 @@ public interface FundService {
 	public List<FundDTO> todayList() throws Exception;
 	public void increateViewcnt(int bno, HttpSession session) throws Exception;
 	public FundDTO view(int bno, HttpSession session) throws Exception;
+	public void like(int bno, HttpSession session);
 }

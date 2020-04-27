@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.test.model.user.dto.UserDTO;
+import com.example.test.service.like.Like_FundService;
 import com.example.test.service.user.UserService;
 
 @Controller
@@ -27,6 +28,8 @@ public class UserController {
 	UserService userService;
 	@Inject
 	BCryptPasswordEncoder pwEncoder;
+	@Inject
+	Like_FundService likeService;
 	
 	@RequestMapping("login.do")
 	public String login() {
@@ -105,6 +108,7 @@ public class UserController {
 		ModelAndView mav=new ModelAndView();
 		String userid=(String)session.getAttribute("userid");
 		mav.addObject("dto", userService.user_view(userid));
+		mav.addObject("like_count", likeService.count(userid));
 		mav.setViewName("user/mypage");
 		return mav;
 	}

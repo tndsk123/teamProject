@@ -41,12 +41,13 @@
 				<div class="col-xl-7 col-md-12">
 					<div class="mainpage-subject">
 						<h3>이 프로젝트 어때요?</h3>
+						<!-- 조회순 -->
 					</div>
 					<div class="row">
 					 <c:forEach var="row" items="${cnt_list}" begin="0" end="4">
 						<div class="col-md-4">
-							<a href="${path}/fund/view/${row.bno}">
-								<article>
+							<a href="${path}/fund/invest_detail/${row.bno}">
+								<div>
 									<div class="how-project-thumb">
 										<img src="${path}/img/${row.title_img}">
 									</div>
@@ -54,7 +55,7 @@
 										<p>${row.title}</p>
 										<p><span class="percentage">${row.progress}%</span>${row.s_division}</p>
 									</div>
-								</article>
+								</div>
 							</a>
 						</div>
 					 </c:forEach>
@@ -63,6 +64,7 @@
 				<div class="col-xl-5 col-md-12">
 					<div class="mainpage-subject">
 						<h3>실시간 랭킹</h3>
+						<!-- 좋아요순 -->
 					</div>
 					<ul class="nav nav-tabs lank-tabs" role="tablist">
 						<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#stock">주식</a></li>
@@ -115,6 +117,7 @@
 				<h3>
 					주목하세요!<br>#오늘 오픈한 프로젝트
 				</h3>
+				<!-- 서포터순 -->
 				<div>
 					<a href="#">&lt;12345&gt;</a>
 				</div>

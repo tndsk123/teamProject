@@ -9,15 +9,25 @@ public class FundDTO {
 	private String company_name;//회사명
 	private String s_division;//주식 구분(주식,채권)
 	private String p_division;//프로젝트 업종구분
+	private String p_detail_division;//업종 디테일
 	private String manager;//프로젝트 관리자
 	private String title;//타이틀(소개글)
 	private String title_img;//타이틀 이미지
+	private String title_img2;//타이틀 이미지2
+	private String title_img3;//타이틀 이미지3
 	private String sub_title;//서브타이틀
 	private Date start_date;//시작일자
 	private Date end_date;//종료일자
 	private Date append_date;//등록 일자
-	private String content_title;//본문 타이틀
-	private String content;//본문(상품상세설명)
+	private String content_point_title;
+	private String content_point_img;
+	private String content_point;
+	private String content_business_title;
+	private String content_business_img;
+	private String content_business;
+	private String content_detail_title;
+	private String content_detail_img;
+	private String content_detail;
 	private int progress;//진행률
 	private int unit;//주당 금액
 	private int min_fund;//최소투자액
@@ -33,6 +43,80 @@ public class FundDTO {
 	private String writer;//등록한 사람
 	private int now_date;//남은 기간
 	private int open_date;
+	
+	
+	public String getP_detail_division() {
+		return p_detail_division;
+	}
+	public void setP_detail_division(String p_detail_division) {
+		this.p_detail_division = p_detail_division;
+	}
+	public String getTitle_img2() {
+		return title_img2;
+	}
+	public void setTitle_img2(String title_img2) {
+		this.title_img2 = title_img2;
+	}
+	public String getTitle_img3() {
+		return title_img3;
+	}
+	public void setTitle_img3(String title_img3) {
+		this.title_img3 = title_img3;
+	}
+	public String getContent_point_title() {
+		return content_point_title;
+	}
+	public void setContent_point_title(String content_point_title) {
+		this.content_point_title = content_point_title;
+	}
+	public String getContent_point_img() {
+		return content_point_img;
+	}
+	public void setContent_point_img(String content_point_img) {
+		this.content_point_img = content_point_img;
+	}
+	public String getContent_point() {
+		return content_point;
+	}
+	public void setContent_point(String content_point) {
+		this.content_point = content_point;
+	}
+	public String getContent_business_title() {
+		return content_business_title;
+	}
+	public void setContent_business_title(String content_business_title) {
+		this.content_business_title = content_business_title;
+	}
+	public String getContent_business_img() {
+		return content_business_img;
+	}
+	public void setContent_business_img(String content_business_img) {
+		this.content_business_img = content_business_img;
+	}
+	public String getContent_business() {
+		return content_business;
+	}
+	public void setContent_business(String content_business) {
+		this.content_business = content_business;
+	}
+	public String getContent_detail_title() {
+		return content_detail_title;
+	}
+	public void setContent_detail_title(String content_detail_title) {
+		this.content_detail_title = content_detail_title;
+	}
+	public String getContent_detail_img() {
+		return content_detail_img;
+	}
+	public void setContent_detail_img(String content_detail_img) {
+		this.content_detail_img = content_detail_img;
+	}
+	public String getContent_detail() {
+		return content_detail;
+	}
+	public void setContent_detail(String content_detail) {
+		this.content_detail = content_detail;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -104,18 +188,6 @@ public class FundDTO {
 	}
 	public void setAppend_date(Date append_date) {
 		this.append_date = append_date;
-	}
-	public String getContent_title() {
-		return content_title;
-	}
-	public void setContent_title(String content_title) {
-		this.content_title = content_title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
 	}
 	public int getProgress() {
 		return progress;
@@ -210,12 +282,17 @@ public class FundDTO {
 	@Override
 	public String toString() {
 		return "FundDTO [bno=" + bno + ", project_name=" + project_name + ", company_name=" + company_name
-				+ ", s_division=" + s_division + ", p_division=" + p_division + ", manager=" + manager + ", title="
-				+ title + ", title_img=" + title_img + ", sub_title=" + sub_title + ", start_date=" + start_date
-				+ ", end_date=" + end_date + ", append_date=" + append_date + ", content_title=" + content_title
-				+ ", content=" + content + ", progress=" + progress + ", unit=" + unit + ", min_fund=" + min_fund
-				+ ", max_fund=" + max_fund + ", now_fund=" + now_fund + ", limit=" + limit + ", viewcnt=" + viewcnt
-				+ ", support=" + support + ", approve=" + approve + ", good=" + good + ", margin=" + margin
+				+ ", s_division=" + s_division + ", p_division=" + p_division + ", p_detail_division="
+				+ p_detail_division + ", manager=" + manager + ", title=" + title + ", title_img=" + title_img
+				+ ", title_img2=" + title_img2 + ", title_img3=" + title_img3 + ", sub_title=" + sub_title
+				+ ", start_date=" + start_date + ", end_date=" + end_date + ", append_date=" + append_date
+				+ ", content_point_title=" + content_point_title + ", content_point_img=" + content_point_img
+				+ ", content_point=" + content_point + ", content_business_title=" + content_business_title
+				+ ", content_business_img=" + content_business_img + ", content_business=" + content_business
+				+ ", content_detail_title=" + content_detail_title + ", content_detail_img=" + content_detail_img
+				+ ", content_detail=" + content_detail + ", progress=" + progress + ", unit=" + unit + ", min_fund="
+				+ min_fund + ", max_fund=" + max_fund + ", now_fund=" + now_fund + ", limit=" + limit + ", viewcnt="
+				+ viewcnt + ", support=" + support + ", approve=" + approve + ", good=" + good + ", margin=" + margin
 				+ ", margin_date=" + margin_date + ", writer=" + writer + ", now_date=" + now_date + ", open_date="
 				+ open_date + "]";
 	}
