@@ -16,4 +16,5 @@ public interface FundDAO {
 	public FundDTO view(int bno) throws Exception;
 	public void like(int bno) throws Exception;
 	public void unlike(int bno) throws Exception;
+	public List<FundDTO> like_fund(String bno_list) throws Exception;
 }

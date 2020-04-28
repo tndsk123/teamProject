@@ -17,14 +17,12 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	@Override
 	public void append_account(AccountDTO dto) {
-		// TODO Auto-generated method stub
-
+		session.insert("account.append_account", dto);
 	}
 
 	@Override
 	public List<AccountDTO> account_list(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList("account.account_list", userid);
 	}
 
 	@Override

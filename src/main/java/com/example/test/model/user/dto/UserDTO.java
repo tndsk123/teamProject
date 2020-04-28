@@ -20,7 +20,15 @@ public class UserDTO {
 	private int company_chk;
 	private int coupon_chk;
 	private Date join_date;
+	private String profile_img;
 	
+	
+	public String getProfile_img() {
+		return profile_img;
+	}
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
 	public String getBirth_date() {
 		return birth_date;
 	}
@@ -123,7 +131,7 @@ public class UserDTO {
 				+ ", birth_date=" + birth_date + ", hp=" + hp + ", email=" + email + ", address1=" + address1
 				+ ", address2=" + address2 + ", address3=" + address3 + ", grade=" + grade + ", email_chk=" + email_chk
 				+ ", account_chk=" + account_chk + ", company_chk=" + company_chk + ", coupon_chk=" + coupon_chk
-				+ ", join_date=" + join_date + "]";
+				+ ", join_date=" + join_date + ", profile_img=" + profile_img + "]";
 	}
 	
 	

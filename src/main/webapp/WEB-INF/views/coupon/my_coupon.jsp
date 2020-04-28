@@ -143,6 +143,12 @@
     margin-bottom: 10px;	
 }
 </style>
+
+<script type="text/javascript">
+function delete_coupon(data){
+	location.href="${path}/coupon/delete_coupon.do?cou_no="+data;
+}
+</script>
 </head>
 <body>
 	<%@ include file="../include/frame/site-header.jsp"%>

@@ -40,19 +40,24 @@ public class CouponController {
 	@ResponseBody
 	public ModelAndView get_coupon(int cou_no, HttpSession session){
 		String userid=(String)session.getAttribute("userid");
-		System.out.println(cou_no);
-		CouponDTO dto=couponService.view(cou_no);
+		ModelAndView mav=new ModelAndView();
 		User_couponDTO dto2=new User_couponDTO();
 		dto2.setUserid(userid);
 		dto2.setCou_no(cou_no);
+		if(user_couponService.check_coupon(dto2)==1) {
+			System.out.println("빠꾸성공");
+			mav.addObject("result", "e");
+			return mav;
+		}else {
+		CouponDTO dto=couponService.view(cou_no);
 		dto2.setCoupon_content(dto.getCoupon_content());
 		dto2.setCoupon_name(dto.getCoupon_name());
 		dto2.setDiscount(dto.getDiscount());
 		dto2.setValidity(dto.getValidity());
 		dto2.setC_division(dto.getC_division());
 		user_couponService.get_coupon(dto2);
-		ModelAndView mav=new ModelAndView();
 		return mav;
+		}
 	}
 	
 	@RequestMapping("my_coupon.do")
@@ -63,6 +68,19 @@ public class CouponController {
 		mav.setViewName("coupon/my_coupon");
 		mav.addObject("list", user_couponService.view(userid));
 		mav.addObject("count", user_couponService.count_coupon(userid));
+		return mav;
+	}
+	
+	@RequestMapping("delete_coupon")
+	public ModelAndView delete_coupon(int cou_no, HttpSession session) {
+		String userid=(String)session.getAttribute("userid");
+		User_couponDTO dto=new User_couponDTO();
+		dto.setUserid(userid);
+		dto.setCou_no(cou_no);
+		user_couponService.delete_coupon(dto);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("redirect:/coupon/my_coupon.do");
+		mav.addObject("message", "s");
 		return mav;
 	}
 }

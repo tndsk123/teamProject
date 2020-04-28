@@ -16,4 +16,7 @@ public interface UserDAO {
 	public void update_user(UserDTO dto);
 	public void update_passwd(UserDTO dto);
 	public void update_coupon(String userid);
+	public void update_account(String userid);
+	public void delete_coupon(String userid);
+	public void profile_upload(UserDTO dto);
 }

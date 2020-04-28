@@ -1,5 +1,9 @@
 package com.example.test.controller.user;
 
+import java.io.File;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -7,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.test.model.user.dto.UserDTO;
@@ -30,6 +36,8 @@ public class UserController {
 	BCryptPasswordEncoder pwEncoder;
 	@Inject
 	Like_FundService likeService;
+	@Resource(name="uploadPath_user")
+	String uploadPath_user;
 	
 	@RequestMapping("login.do")
 	public String login() {
@@ -192,6 +200,27 @@ public class UserController {
 			mav.addObject("message", "error");
 			return mav;   
 		}
-
+	}
+	
+	@RequestMapping("profile_img.do")
+	public ModelAndView profile_img(@RequestParam("file") MultipartFile file, HttpSession session) throws Exception{
+		String profile_img=file.getOriginalFilename();
+		profile_img = uploadFile(profile_img, file.getBytes());
+		String userid=(String)session.getAttribute("userid");
+		UserDTO dto=new UserDTO();
+		dto.setUserid(userid);
+		dto.setProfile_img(profile_img);
+		userService.profile_upload(dto);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("message","이미지 등록 완료");
+		mav.setViewName("redirect:/user/mypage.do");		 
+		return mav;
+	}
+	String uploadFile(String originalName, byte[] fileData) throws Exception {
+		UUID uid=UUID.randomUUID();
+		String savedName=uid.toString()+"_"+originalName;
+		File target=new File(uploadPath_user, savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
 	}
 }

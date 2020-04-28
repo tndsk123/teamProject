@@ -17,4 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into user_coupon(cou_no,c_division,userid,coupon_name,coupon_content,discount,validity)
 		values (#{cou_no},#{c_division},#{userid},#{coupon_name},#{coupon_content},#{discount},#{validity})
 	</insert>
+	<delete id="delete_coupon">
+		delete from user_coupon where userid=#{userid} and cou_no=#{cou_no}
+	</delete>
+	<select id="check_coupon" resultType="int">
+		select count(*) from user_coupon where userid=#{userid} and cou_no=#{cou_no}
+	</select>
 </mapper>

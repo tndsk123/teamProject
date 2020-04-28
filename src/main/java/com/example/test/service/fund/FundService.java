@@ -14,4 +14,5 @@ public interface FundService {
 	public void increateViewcnt(int bno, HttpSession session) throws Exception;
 	public FundDTO view(int bno, HttpSession session) throws Exception;
 	public void like(int bno, HttpSession session);
+	public List<FundDTO> like_fund(String bno) throws Exception;
 }

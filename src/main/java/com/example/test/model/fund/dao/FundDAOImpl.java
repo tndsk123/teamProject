@@ -1,6 +1,8 @@
 package com.example.test.model.fund.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -50,5 +52,10 @@ public class FundDAOImpl implements FundDAO {
 	public void unlike(int bno) throws Exception {
 		session.update("fund.unlike", bno);
 	}
-
+	@Override
+	public List<FundDTO> like_fund(String bno_list) throws Exception {
+		Map<String, Object> map=new HashMap<>();
+		map.put("bno_list", bno_list);
+		return session.selectList("fund.like_fund", map);
+	}
 }

@@ -10,4 +10,6 @@ public interface User_couponService {
 	public int count_coupon(String userid);
 	public List<User_couponDTO> view(String userid);
 	public void get_coupon(User_couponDTO dto);
+	public void delete_coupon(User_couponDTO dto);
+	public int check_coupon(User_couponDTO dto);
 }

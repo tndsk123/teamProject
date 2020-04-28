@@ -10,7 +10,7 @@ public class AccountDTO {
 	private String account_bank;
 	private String account_passwd;
 	private String account_number;
-	private int account;
+	private int account_money;
 	private String buy_passwd;
 	private int primary_kard;
 	private Date append_date;
@@ -51,11 +51,11 @@ public class AccountDTO {
 	public void setAccount_number(String account_number) {
 		this.account_number = account_number;
 	}
-	public int getAccount() {
-		return account;
+	public int getAccount_money() {
+		return account_money;
 	}
-	public void setAccount(int account) {
-		this.account = account;
+	public void setAccount_money(int account_money) {
+		this.account_money = account_money;
 	}
 	public String getBuy_passwd() {
 		return buy_passwd;
@@ -79,7 +79,7 @@ public class AccountDTO {
 	public String toString() {
 		return "AccountDTO [cno=" + cno + ", userid=" + userid + ", username=" + username + ", account_bank="
 				+ account_bank + ", account_passwd=" + account_passwd + ", account_number=" + account_number
-				+ ", account=" + account + ", buy_passwd=" + buy_passwd + ", primary_kard=" + primary_kard
+				+ ", account_money=" + account_money + ", buy_passwd=" + buy_passwd + ", primary_kard=" + primary_kard
 				+ ", append_date=" + append_date + "]";
 	}
 

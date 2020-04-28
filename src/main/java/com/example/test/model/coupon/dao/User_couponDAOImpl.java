@@ -34,5 +34,15 @@ public class User_couponDAOImpl implements User_couponDAO {
 	public void get_coupon(User_couponDTO dto) {
 		session.insert("user_coupon.get_coupon", dto);
 	}
+	
+	@Override
+	public void delete_coupon(User_couponDTO dto) {
+		session.delete("user_coupon.delete_coupon", dto);
+	}
+	
+	@Override
+	public int check_coupon(User_couponDTO dto) {
+		return session.selectOne("user_coupon.check_coupon", dto);
+	}
 
 }

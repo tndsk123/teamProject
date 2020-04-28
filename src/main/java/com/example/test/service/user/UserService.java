@@ -14,4 +14,5 @@ public interface UserService {
 	public int look_pw(UserDTO dto);
 	public void update_user(UserDTO dto);
 	public void update_passwd(UserDTO dto);
+	public void profile_upload(UserDTO dto);
 }

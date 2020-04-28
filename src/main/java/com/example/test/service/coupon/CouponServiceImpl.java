@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.test.model.coupon.dao.CouponDAO;
 import com.example.test.model.coupon.dto.CouponDTO;
+import com.example.test.model.coupon.dto.User_couponDTO;
 
 @Service
 public class CouponServiceImpl implements CouponService {
@@ -29,4 +30,6 @@ public class CouponServiceImpl implements CouponService {
 	public CouponDTO view(int cou_no) {
 		return dao.view(cou_no);
 	}
+	
+
 }

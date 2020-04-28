@@ -19,11 +19,15 @@ public class Like_FundServiceImpl implements Like_FundService {
 	}
 
 	@Override
-	public void cancel_like(int bno) {
-		dao.cancel_like(bno);
+	public void cancel_like(Like_FundDTO dto) {
+		dao.cancel_like(dto);
 	}
 	@Override
 	public int count(String userid) {
 		return dao.count(userid);
+	}
+	@Override
+	public String user_like(String userid) {
+		return dao.user_like(userid);
 	}
 }

@@ -79,14 +79,12 @@ public class FundServiceImpl implements FundService {
 				e.printStackTrace();
 			}			
 		}else {
-			likeDao.cancel_like(bno);
-			try {
-				fundDao.unlike(bno);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
+			likeDao.cancel_like(dto);
+		}	
+	}
+	@Override
+	public List<FundDTO> like_fund(String bno) throws Exception {
+		return fundDao.like_fund(bno);
 	}
 
 }

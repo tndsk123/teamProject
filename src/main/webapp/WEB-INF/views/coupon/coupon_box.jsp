@@ -99,9 +99,9 @@ function id_check(data){
 		    type: "GET",
 		    success: function(result){
 			  }
-		})
+		})		
+		   alert("쿠폰이 발급되었습니다.");
 	}
-	alert("쿠폰이 발급되었습니다.");
 }
 </script>
 </head>

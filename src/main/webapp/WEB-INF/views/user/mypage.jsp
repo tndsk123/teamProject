@@ -66,7 +66,34 @@
 	font-weight: 700;
 	color: #cc3000;
 }
+
+.filebox label, button { display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; }
+.filebox input[type="file"] { /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+
 </style>
+<script>
+var img_file;
+$(document).ready(function() {
+	$("#input_img").on("change", handleImgFileSelect);
+});
+function handleImgFileSelect(e) {
+	var files= e.target.files;
+	var filesArr = Array.prototype.slice.call(files);
+	filesArr.forEach(function(f) {
+		if(!f.type.match("image.*")){
+			alert("확장자는 이미지 확장자만 가능합니다.");
+			return;
+		}
+		sel_file = f;
+		
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$("#img").attr("src", e.target.result);
+		}
+		reader.readAsDataURL(f);
+	});
+}
+</script>
 <c:if test="${message == 'error'}">
 <script type="text/javascript">
   alert("비밀번호 틀렸음");
@@ -93,11 +120,15 @@
             </div>
           </div>
           <div class="row mt-5">
-              <img class="profile-img" src="${path}/images/portfolio-img1.jpg" alt="">
+              <img class="profile-img" src="${path}/img/user_profile/${dto.profile_img}" id="img">
           </div>
-          <div class="row justify-content-center mt-3">
-              	<button class="btn-update-photo">프로필 사진 등록</button>
+          <form action="${path}/user/profile_img.do" method="post" enctype="multipart/form-data">
+          <div class="row justify-content-center mt-3 filebox">
+          			<label for="input_img">파일찾기</label>
+              	<input type="file" name="file" id="input_img">
+              	<button type="submit">저장하기</button>
           </div>
+          </form>
 		  <div class="row justify-content-center mt-5">
 		  	<div class="jumbotron shadow rounded" style="width: 1000px; text-align: center;">
 		  		<div class="row">
@@ -121,8 +152,16 @@
 		  		</div>
 		  		<div class="col-sm">
 		  			<p class="tier">좋아요<i class="fa fa-heart"></i></p>
-		  			<p><span class="second-tier">${like_count}</span></p>
-		  			<a href="${path}/user/user_like.do">좋아요한 프로젝트</a>
+		  			<c:choose>
+		  				<c:when test="${like_count == 0}">
+		  					<p><span class="second-tier">좋아하는 프로젝트가 없습니다.</span></p>
+		  					<a href="${path}">프로젝트 보러 가기</a>
+		  				</c:when>
+		  				<c:otherwise>
+		  					<p><span class="second-tier">${like_count}</span></p>
+		  					<a href="${path}/user_like/user_like.do">좋아요한 프로젝트</a>
+		  				</c:otherwise>
+		  			</c:choose>		  			
 		  		</div>
 		  	</div>
 		   </div>
@@ -134,7 +173,7 @@
 		  						<span class="none-Enrollment">아직 <strong>계좌등록</strong>을 안하셨나요?</span><a href="${path}/account/append_account.do" class="Enrollment"> <i class="fa fa-angle-right"></i> 지금당장하기</a>
 		  					</c:when>
 		  					<c:otherwise>
-		  						<span class="none-Enrollment">${dto.account_chk}개의 계좌가 있습니다.</span><a href="#" class="Enrollment"> <i class="fa fa-angle-right"></i>계좌확인</a>
+		  						<span class="none-Enrollment">${dto.account_chk}개의 계좌가 있습니다.</span><a href="${path}/account/my_account.do" class="Enrollment"> <i class="fa fa-angle-right"></i>계좌확인</a>
 		  					</c:otherwise>
 		  				</c:choose>             
             </div>

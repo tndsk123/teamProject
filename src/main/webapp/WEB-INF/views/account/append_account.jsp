@@ -28,23 +28,37 @@
 	color: #ff0000;
 }
 .bank-certification {
-	font-size: 15px;
+	font-size: 20px;
 	color: #808080;
+	font-weight: 700;
 }
 label {
 	font-size: 17px;
 	color: #000000;
 }
 .bank-ok {
-	width: 380px;
-	margin-left: 180px;
 	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }	
+.custom-checkbox {
+	margin-top: 10px;
+}
+
+.bank_container {
+	margin-top: 70px;
+}
 </style>
 </head>
 <body>
 	<%@ include file="../include/frame/site-header.jsp"%>
+	<div class="bg-light py-3">
+		<div class="container">
+			<div class="row">
+				<a href="${path}/">Home</a> <span class="mx-2 mb-0">/</span> <strong
+					class="text-black">계좌등록</strong>
+			</div>
+		</div>
+	</div>
 	<div class="container mt-5">
 			<span class="account-title">계좌등록</span>
 			<div class="row">
@@ -61,45 +75,49 @@ label {
 				</div>
 			</div>
 		</div>
-		<div class="container mt-5">
-			<form action="">
-				<span class="bank-certification">은행계좌 인증 : </span>
-				<div class="row justify-content-start">
-					<div class="form-group row mt-5">
-						<label for="username" class="col-md col-form-label text-md-right">예금주
-							: </label>
-						<div class="col-md-8">
-							<input type="text" id="username" class="form-control"
-								name="username" size="60">
+		<div class="container bank_container">
+			<form method="post" action="${path}/account/insert_account.do" name="form1" id="form1">
+				<span class="bank-certification">은행계좌 인증 </span>
+					<div class="row justify-content-start mt-3">
+						<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+							<div class="row">
+								<div class="col mt-4">
+									<label style="margin-bottom: 5px;">예금주</label><input type="text" class="form-control" id="username" name="username">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col mt-4">
+									<label style=" margin-bottom: 5px;">은행명</label><br> <select class="form-control" id="account_bank" name="account_bank">
+										<option style="color: #e6e6e6;">은행명</option>
+										<option>농협</option>
+										<option>국민</option>
+										<option>기업</option>
+										<option>신한</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col mt-4">
+									<label style="margin-bottom: 5px;">계좌번호</label><input type="text" class="form-control" id="account_number" name="account_number">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col mt-4">
+									<label style="margin-bottom: 5px;">계좌비밀번호</label><input type="password" class="form-control"  id="account_passwd" name="account_passwd">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col mt-4">
+									<label style="margin-bottom: 5px;">결제비밀번호</label><input type="password" class="form-control" class="buy_passwd" id="userid" name="buy_passwd">
+										<div class="custom-control custom-checkbox">
+											<input type="radio" id="primary_card" name="primary_card" class="custom-control-input" value="1">
+											<label class="custom-control-label" for="primary_card">메인계좌여부</label>
+										</div>
+										<button class="bank-ok btn btn-primary">등록완료</button>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row justify-content-start">
-					<div class="form-group row mt-3">
-						<label for="account_bank" class="col-md col-form-label text-md-right">은행명
-							: </label>
-						<div class="col-md-8">
-							<input type="text" id="account_bank" class="form-control"
-								name="account_bank" size="60" placeholder="은행명을 입력해주세요.">
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-start">
-					<div class="form-group row mt-3">
-						<label for="account_number" class="col-md col-form-label text-md-right">계좌번호 : </label>
-						<div class="col-md-8">
-							<input type="text" id="account_number" class="form-control"
-								name="account_number" size="60">
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-start">
-					<div class="form-group row mt-3">
-						<div class="col-md-8">
-							<a href="${path}/page/accountcomplete.do" class="btn btn-primary bank-ok">등록</a>
-						</div>
-					</div>
-				</div>
 			</form>
 		</div>
 	<%@ include file="../include/frame/site-footer.jsp"%>

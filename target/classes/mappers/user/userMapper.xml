@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="view" resultType="com.example.test.model.user.dto.UserDTO">
 		select userid,passwd,username,gender,email,hp,address1,address2,
-		address3,TO_CHAR(birth_date,'YYYYMMDD') birth_date,grade,email_chk,
+		address3,TO_CHAR(birth_date,'YYYYMMDD') birth_date,grade,email_chk,profile_img,
 		account_chk,company_chk,coupon_chk,join_date from user1 where userid=#{userid}
 	</select>
 	
@@ -63,4 +63,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update_coupon">
 		update user1 set coupon_chk=coupon_chk+1 where userid=#{userid}	
 	</update>
+	
+	<update id="delete_coupon">
+		update user1 set coupon_chk=coupon_chk-1 where userid=#{userid}	
+	</update>
+	
+	<update id="profile_upload">
+		update user1 set profile_img=#{profile_img} where userid=#{userid}	
+	</update>
+	
+	<update id="update_account">
+		update user1 set account_chk=account_chk+1 where userid=#{userid}	
+	</update>
+	
 </mapper>

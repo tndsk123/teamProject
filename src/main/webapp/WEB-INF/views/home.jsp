@@ -74,7 +74,7 @@
 						<div id="stock" class="container tab-pane active">
 						 <c:forEach var="row" items="${good_list}" begin="0" end="4"  varStatus="vs">
 							<div class="lank">
-								<a href="${path}/fund/view/${row.bno}">
+								<a href="${path}/fund/invest_detail/${row.bno}">
 									<div class="row align-items-center">
 											<div class="col-2 col-md-2 col-lg-2 text-center">${vs.count}</div>
 											<div class="col-7 col-md-8 col-lg-7 lank-contents">
@@ -92,7 +92,7 @@
 						<div id="bond" class="container tab-pane fade">
 						 <c:forEach var="row" items="${good_list}" begin="0" end="4" varStatus="vs">
 							<div class="lank">
-								<a href="${path}/fund/view/${row.bno}">
+								<a href="${path}/fund/invest_detail/${row.bno}">
 									<div class="row align-items-center">	
 											<div class="col-2 col-md-2 col-lg-2 text-center">${vs.count}</div>
 											<div class="col-7 col-md-8 col-lg-7 lank-contents">
@@ -125,7 +125,7 @@
 			<div class="row to-contents">
 			 <c:forEach var="row" items="${support_list}" begin="0" end="5">
 				<div class="col-md-3 col-6">
-					<a href="${path}/fund/view/${row.bno}">
+					<a href="${path}/fund/invest_detail/${row.bno}">
 						<div class="to-thumb">
 							<img src="${path}/img/${row.title_img}">
 							<div class="to-overlay">

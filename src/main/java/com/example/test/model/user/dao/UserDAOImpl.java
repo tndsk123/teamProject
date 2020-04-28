@@ -73,4 +73,17 @@ public class UserDAOImpl implements UserDAO {
 	public void update_coupon(String userid) {
 		session.update("user.update_coupon", userid);
 	}
+	
+	@Override
+	public void delete_coupon(String userid) {
+		session.update("user.delete_coupon", userid);
+	}
+	@Override
+	public void profile_upload(UserDTO dto) {
+		session.update("user.profile_upload", dto);
+	}
+	@Override
+	public void update_account(String userid) {
+		session.update("user.update_account", userid);
+	}
 }

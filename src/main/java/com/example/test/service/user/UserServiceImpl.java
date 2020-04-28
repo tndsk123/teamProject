@@ -99,5 +99,8 @@ public class UserServiceImpl implements UserService {
 	public void update_passwd(UserDTO dto) {
 		dao.update_passwd(dto);
 	}
-	
+	@Override
+	public void profile_upload(UserDTO dto) {
+		dao.profile_upload(dto);
+	}
 }

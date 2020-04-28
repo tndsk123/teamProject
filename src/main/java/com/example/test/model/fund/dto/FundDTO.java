@@ -44,7 +44,6 @@ public class FundDTO {
 	private int now_date;//남은 기간
 	private int open_date;
 	
-	
 	public String getP_detail_division() {
 		return p_detail_division;
 	}

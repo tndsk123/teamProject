@@ -51,4 +51,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="unlike">
 		update fund set good=good-1 where bno=#{bno}
 	</update>
+	<select id="like_fund" resultType="com.example.test.model.fund.dto.FundDTO" >
+		<if test='bno_list != null'>
+		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,			
+		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date,p_detail_division
+		from fund  where bno in (${bno_list})
+		</if>		
+	</select>
 </mapper>

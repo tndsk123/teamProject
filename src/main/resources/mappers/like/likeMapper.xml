@@ -11,6 +11,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into like_fund(bno,userid) values(#{bno},#{userid})
 	</insert>
 	<delete id="delete">
-		delete from like_fund where bno=#{bno}
+		delete from like_fund where bno=#{bno} and userid=#{userid}
 	</delete>
+	<select id="count" resultType="int">
+		select count(*) from like_fund where userid=#{userid}
+	</select>
+	<select id="user_like" resultType="String">
+		SELECT
+		LISTAGG(bno,',') WITHIN GROUP (ORDER BY bno) bno
+		FROM like_fund where userid=#{userid}
+		GROUP BY userid
+	</select>
 </mapper>

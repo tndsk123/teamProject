@@ -37,9 +37,30 @@ public class User_couponServiceImpl implements User_couponService {
 	@Override
 	@Transactional
 	public void get_coupon(User_couponDTO dto) {
-		dao.get_coupon(dto);
-		String userid=dto.getUserid();
-		userdao.update_coupon(userid);
+		try {
+			dao.get_coupon(dto);
+			String userid=dto.getUserid();
+			userdao.update_coupon(userid);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	@Transactional
+	public void delete_coupon(User_couponDTO dto) {
+		try {
+			dao.delete_coupon(dto);
+			String userid=dto.getUserid();
+			userdao.delete_coupon(userid);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public int check_coupon(User_couponDTO dto) {
+		return dao.check_coupon(dto);
 	}
 
 }
