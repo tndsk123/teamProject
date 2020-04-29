@@ -30,4 +30,8 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping("introduce/ifU_introduce.do")
+	public String introduce() {
+		return "introduce/introduce";
+	}
 }

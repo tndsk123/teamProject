@@ -3,8 +3,16 @@ package com.example.test.model.grade.dto;
 public class GradeDTO {
 
 	private int gno; 
+	private String division;
 	private String grade;
 	private int grade_limit;
+	
+	public String getDivision() {
+		return division;
+	}
+	public void setDivision(String division) {
+		this.division = division;
+	}
 	public int getGno() {
 		return gno;
 	}
@@ -25,7 +33,8 @@ public class GradeDTO {
 	}
 	@Override
 	public String toString() {
-		return "GradeDTO [gno=" + gno + ", grade=" + grade + ", grade_limit=" + grade_limit + "]";
+		return "GradeDTO [gno=" + gno + ", division=" + division + ", grade=" + grade + ", grade_limit=" + grade_limit
+				+ "]";
 	}
 
 }

@@ -26,7 +26,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="${path}/fund/invest.do">투자하기</a></li>
 					<li class="nav-item"><a class="nav-link" href="${path}/fund/apply_project.do">프로젝트 오픈신청</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">IFU소개</a></li>
+					<li class="nav-item"><a class="nav-link" href="${path}/introduce/ifU_introduce.do">IFU소개</a></li>
 					<c:choose>
 								<c:when test="${sessionScope.userid == null }">
 									 <li class="nav-item"><a class="nav-link" href="${path}/user/login.do">로그인</a></li>

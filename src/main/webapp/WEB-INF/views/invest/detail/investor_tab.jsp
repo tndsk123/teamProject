@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <section class="tab-pane fade" id="investor" role="tabpanel" aria-labelledby="investor-tab">
-	<div class="investor-subject">
+	<div class="tab-subject">
 		<h3>투자자<span class="new">200</span></h3>
 	</div>
-	<div class="investor-contents">
+	<div class="tab-contents">
 		<div class="investor-chart">
 			<!-- 차트 -->
 			<div class="chart">
@@ -34,7 +34,7 @@
 				<ul class="investor-list">
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -42,7 +42,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -50,7 +50,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -58,7 +58,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -66,7 +66,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -74,7 +74,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -82,7 +82,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -90,7 +90,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -98,7 +98,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
@@ -106,7 +106,7 @@
 					</li>
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/include/images/profile.png" class="rounded-circle">
+							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
 							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>

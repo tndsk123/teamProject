@@ -86,4 +86,8 @@ public class UserDAOImpl implements UserDAO {
 	public void update_account(String userid) {
 		session.update("user.update_account", userid);
 	}
+	@Override
+	public int get_grade(String userid) {
+		return session.selectOne("user.get_grade", userid);
+	}
 }

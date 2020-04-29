@@ -30,4 +30,9 @@ public class Like_FundServiceImpl implements Like_FundService {
 	public String user_like(String userid) {
 		return dao.user_like(userid);
 	}
+	
+	@Override
+	public int confirm_like(Like_FundDTO dto) {
+		return dao.confirm_like(dto);
+	}
 }

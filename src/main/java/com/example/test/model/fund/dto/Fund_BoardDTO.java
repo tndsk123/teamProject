@@ -12,7 +12,7 @@ public class Fund_BoardDTO {
 	private int hate;
 	private Date append_date;
 	private String writer;
-	private String categories;
+	private String writer_grade;
 	public int getF_bno() {
 		return f_bno;
 	}
@@ -61,18 +61,16 @@ public class Fund_BoardDTO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getCategories() {
-		return categories;
+	public String getWriter_grade() {
+		return writer_grade;
 	}
-	public void setCategories(String categories) {
-		this.categories = categories;
+	public void setWriter_grade(String writer_grade) {
+		this.writer_grade = writer_grade;
 	}
 	@Override
 	public String toString() {
 		return "Fund_BoardDTO [f_bno=" + f_bno + ", bno=" + bno + ", title=" + title + ", content=" + content
 				+ ", good=" + good + ", hate=" + hate + ", append_date=" + append_date + ", writer=" + writer
-				+ ", categories=" + categories + "]";
-	}
-	
-	
+				+ ", writer_grade=" + writer_grade + "]";
+	}	
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fund_board">
+	<select id="list" resultType="com.example.test.model.fund.dto.Fund_BoardDTO">
+		select * from fund_board where bno=#{bno}
+	</select>
+	<insert id="insert">
+		insert into fund_board(f_bno,bno,title,content,writer,writer_grade) 
+		values(seq_f_bno.nextval,#{bno},#{title},#{content},#{writer},#{writer_grade})
+	</insert>
+</mapper>

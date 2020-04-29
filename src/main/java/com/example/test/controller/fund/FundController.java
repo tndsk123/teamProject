@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.test.controller.user_like.User_likeController;
 import com.example.test.model.fund.dto.FundDTO;
+import com.example.test.model.like.dto.Like_FundDTO;
 import com.example.test.model.user.dto.UserDTO;
 import com.example.test.service.fund.FundService;
+import com.example.test.service.fund_board.Fund_BoardService;
+import com.example.test.service.like.Like_FundService;
 
 @Controller
 @RequestMapping("fund/*")
@@ -22,6 +26,10 @@ public class FundController {
 	
 	@Inject
 	FundService fundService;
+	@Inject
+	Like_FundService like_fundService;
+	@Inject
+	Fund_BoardService boardService;
 	
 	@RequestMapping("apply_project.do")
 	public String apply_project() {
@@ -43,10 +51,20 @@ public class FundController {
 	
 	@RequestMapping("invest_detail/{bno}")
 	public ModelAndView view(@PathVariable("bno") int bno, HttpSession session) throws Exception {
-		FundDTO dto=fundService.view(bno,session);
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("invest/invest_detail");
+		FundDTO dto=fundService.view(bno,session);
+		String userid=(String)session.getAttribute("userid");
+		if(userid!=null) {
+			Like_FundDTO dto2=new Like_FundDTO();
+			dto2.setBno(bno);
+			dto2.setUserid(userid);
+			int check_like=like_fundService.confirm_like(dto2);
+			mav.addObject("check_like", check_like);
+		}						
+		mav.setViewName("invest/detail/invest_detail");
+		mav.addObject("fund_board", boardService.list(bno));
 		mav.addObject("list", dto);
+		
 		/*
 		 * mav.addObject("grade", boardgradeService.list(bno)); mav.addObject("company",
 		 * companyService.view(dto.getCompany_name())); mav.addObject("comment",

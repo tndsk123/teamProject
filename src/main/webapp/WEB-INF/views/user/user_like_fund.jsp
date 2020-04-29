@@ -36,7 +36,7 @@
 		<section class="container today-open">
 		<div class="row to-contents ">
 			<c:choose>
-				<c:when test="${list == null}">
+				<c:when test="${list == null || list == ''}">
 					<p class="couponList-message">좋아요한 게시물이 업습니다.</p>
 					<a href="${path}"><p class="couponList-message">상품보러가기</p></a>		
 				</c:when>

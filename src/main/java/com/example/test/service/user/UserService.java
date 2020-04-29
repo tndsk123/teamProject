@@ -1,5 +1,6 @@
 package com.example.test.service.user;
 
+import com.example.test.model.grade.dto.GradeDTO;
 import com.example.test.model.user.dto.UserDTO;
 
 public interface UserService {
@@ -15,4 +16,5 @@ public interface UserService {
 	public void update_user(UserDTO dto);
 	public void update_passwd(UserDTO dto);
 	public void profile_upload(UserDTO dto);
+	public GradeDTO get_grade(String userid);
 }

@@ -6,6 +6,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.test.model.grade.dao.GradeDAO;
+import com.example.test.model.grade.dto.GradeDTO;
 import com.example.test.model.user.dao.UserDAO;
 import com.example.test.model.user.dto.UserDTO;
 import com.example.test.service.email.EmailService;
@@ -20,6 +22,8 @@ public class UserServiceImpl implements UserService {
 	EmailService email;
 	@Inject
 	BCryptPasswordEncoder pwEncoder;
+	@Inject
+	GradeDAO gradeDao;
 	
 	@Override
 	public String login(UserDTO dto) {
@@ -102,5 +106,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void profile_upload(UserDTO dto) {
 		dao.profile_upload(dto);
+	}
+	
+	@Override
+	public GradeDTO get_grade(String userid) {
+		int grade=dao.get_grade(userid);	
+		return gradeDao.grade_check(grade);
 	}
 }

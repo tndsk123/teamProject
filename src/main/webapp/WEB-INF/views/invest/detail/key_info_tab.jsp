@@ -5,7 +5,7 @@
 			<h3>증권 발행 조건</h3>
 		</div>
 		<div class="ex-contents">
-			<%@ include file="../../stock/detail/stock_issue_condition.jsp"%>
+			<%@ include file="../detail/stock_condition_table.jsp"%>
 		</div>
 	</div>
 	<div class="ex-point">

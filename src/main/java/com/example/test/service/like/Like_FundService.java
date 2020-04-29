@@ -8,4 +8,5 @@ public interface Like_FundService {
 	public void cancel_like(Like_FundDTO dto);
 	public int count(String userid);
 	public String user_like(String userid);
+	public int confirm_like(Like_FundDTO dto);
 }
