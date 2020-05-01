@@ -11,4 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into fund_board(f_bno,bno,title,content,writer,writer_grade) 
 		values(seq_f_bno.nextval,#{bno},#{title},#{content},#{writer},#{writer_grade})
 	</insert>
+	<select id="view" resultType="com.example.test.model.fund.dto.Fund_BoardDTO">
+		select * from fund_board where f_bno=#{f_bno}
+	</select>
 </mapper>

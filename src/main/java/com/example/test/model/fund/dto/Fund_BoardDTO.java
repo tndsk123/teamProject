@@ -48,7 +48,7 @@ public class Fund_BoardDTO {
 	}
 	public void setHate(int hate) {
 		this.hate = hate;
-	}
+	}	
 	public Date getAppend_date() {
 		return append_date;
 	}

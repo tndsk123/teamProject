@@ -58,4 +58,11 @@ public class FundDAOImpl implements FundDAO {
 		map.put("bno_list", bno_list);
 		return session.selectList("fund.like_fund", map);
 	}
+	@Override
+	public void buy_fund(int bno, int now_fund) throws Exception {
+		Map<String, Object> map=new HashMap<>();
+		map.put("bno", bno);
+		map.put("now_fund", now_fund);
+		session.update("fund.buy_fund", map);
+	}
 }

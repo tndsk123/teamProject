@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user_fund">
+	<insert id="fund_buy">
+		insert into user_fund(u_bno,bno,userid,grade,project_name,company_name,unit,count,discount,now_fund)
+		values(seq_u_bno.nextval,#{bno},#{userid},#{grade},#{project_name},#{company_name},#{unit},#{count},#{discount},#{now_fund})
+	</insert>
+	<select id="fund_view" resultType="com.example.test.model.user_fund.dto.UserFundDTO">
+		select * from user_fund where userid=#{userid}
+	</select>
+</mapper>

@@ -43,5 +43,13 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	public void buy_fund(int cno, int price) {
+		dao.buy_fund(cno, price);	
+	}
+	@Override
+	public AccountDTO view(int cno) {
+		return dao.view(cno);
+	}
 
 }

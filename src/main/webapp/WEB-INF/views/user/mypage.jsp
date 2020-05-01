@@ -150,6 +150,19 @@ function handleImgFileSelect(e) {
 		  				</c:otherwise>
 		  			</c:choose>
 		  		</div>
+		  		<div class="col-sm" style="border-right: 1px solid #cccccc;">
+		  			<p class="tier">나의 투자</p>
+		  			<c:choose>
+		  				<c:when test="${dto.fund_chk == 0}">
+		  					<p><span class="second-tier">투자 내역이 없습니다.</span></p>
+		  					<a href="${path}">프로젝트 보러 가기</a>
+		  				</c:when>
+		  				<c:otherwise>
+		  					<p><span class="second-tier">${dto.fund_chk}개</span></p>
+		  					<a href="${path}/user_fund/my_fund.do">투자목록보기</a>
+		  				</c:otherwise>
+		  			</c:choose>
+		  		</div>
 		  		<div class="col-sm">
 		  			<p class="tier">좋아요<i class="fa fa-heart"></i></p>
 		  			<c:choose>

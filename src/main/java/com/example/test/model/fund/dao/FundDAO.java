@@ -17,4 +17,5 @@ public interface FundDAO {
 	public void like(int bno) throws Exception;
 	public void unlike(int bno) throws Exception;
 	public List<FundDTO> like_fund(String bno_list) throws Exception;
+	public void buy_fund(int bno,int now_fund) throws Exception;
 }

@@ -11,4 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="account_list" resultType="com.example.test.model.account.dto.AccountDTO">
 		select * from user_account where userid=#{userid}
 	</select>
+	<update id="buy_fund">
+		update user_account set account_money=account_money-#{price} where cno=#{cno}
+	</update>
+	<select id="view" resultType="com.example.test.model.account.dto.AccountDTO">
+		select * from user_account where cno=#{cno}
+	</select>
 </mapper>

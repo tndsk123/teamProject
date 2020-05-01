@@ -20,4 +20,5 @@ public interface UserDAO {
 	public void delete_coupon(String userid);
 	public void profile_upload(UserDTO dto);
 	public int get_grade(String userid);
+	public void update_fund(String userid);
 }

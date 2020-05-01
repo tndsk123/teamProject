@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,title_img,title_img2,title_img3,
 		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, limit, ceil(end_date-sysdate) open_date, approve,p_detail_division,
 		content_point_title,content_point_img,content_point, content_business_title,content_business_img,content_business,sub_title,
-		content_detail_title,content_detail_img,content_detail,margin_date
+		content_detail_title,content_detail_img,content_detail,margin_date,margin
 		from fund where bno=#{bno} 
 	</select>
 	<update id="like">
@@ -64,4 +64,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</otherwise>
 		</choose>		
 	</select>
+	<update id="buy_fund">
+		update fund set now_fund=now_fund+#{now_fund}, support=support+1, progress=((now_fund+#{now_fund})/max_fund*100)
+		where bno=#{bno}
+	</update>
 </mapper>

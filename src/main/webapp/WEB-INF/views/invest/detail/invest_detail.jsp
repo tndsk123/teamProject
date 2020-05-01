@@ -111,7 +111,7 @@ function end_invest(){
 										<button type="button" class="basic-btn" onclick="end_invest();">투자종료</button>
 									</c:when>
 									<c:otherwise>
-										<button type="button" class="basic-btn" onclick="invest();">지금 투자하기</button>
+										<button type="button" class="basic-btn" onclick="location.href='${path}/fund/buy/${list.bno}'">지금 투자하기</button>
 									</c:otherwise>
 								</c:choose>								
 							</div>

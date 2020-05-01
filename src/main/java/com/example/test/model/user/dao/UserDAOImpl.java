@@ -90,4 +90,8 @@ public class UserDAOImpl implements UserDAO {
 	public int get_grade(String userid) {
 		return session.selectOne("user.get_grade", userid);
 	}
+	@Override
+	public void update_fund(String userid) {
+		session.update("user.update_fund", userid);
+	}
 }

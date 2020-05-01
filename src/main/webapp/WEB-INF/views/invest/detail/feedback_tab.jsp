@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<c:forEach var="var" items="${fund_board}">
-		<div class="contents" data-toggle="modal" data-target="#reply">
+		<div class="contents" onclick="detail_board(${var.f_bno})">
 			<div class="pb-3 reply-contents">
 				<div class="row justify-content-between align-items-center">
 					<div class="col-8">
@@ -35,7 +35,7 @@
 						<div class="px-2 d-flex flex-column profile">
 							<div>${var.writer}</div>
 							<div>
-								<p>${var.grade}</p>
+								<p>${var.writer_grade}</p>
 							</div>
 						</div>
 					</div>
@@ -61,35 +61,25 @@
 			<div class="mt-5">
 				<h3>피드백 작성하기</h3>
 			</div>
-			<form action="${path}/fund_board/insert.do" method="post" name="form1">
+			<form action="${path}/fund_board/insert.do" method="post" name="write_form1">
 				<div class="form-group row px-3">
-					<label for="writer" class="col-12 mt-2"></label> <input type="text" class="form-control" name="writer" id="writer" placeholder="아이디"> 
+					<label for="writer" class="col-12 mt-2"></label> <input type="text" class="form-control" name="writer" id="writer" value="${sessionScope.userid}" readonly="readonly" placeholder="아이디"> 
 					<label for="title" class="col-12 mt-2"></label> <input type="text" class="form-control" name="title" id="title" placeholder="제목"> 
 					<label for="content" class="col-12 mt-2"></label>
 					<textarea id="content" name="content" class="form-control" rows="5" placeholder="게시글 작성"></textarea>
 					<input type="hidden" value="${list.bno}" name="bno">
-					<button type="submit" class="mt-2 ml-auto col-12 col-sm-2" onclick="write()">등록</button>
+					<button type="button" class="mt-2 ml-auto col-12 col-sm-2" onclick="write_comment()">등록</button>
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript">
-		function write(){
-			var userid=$("#userid").val();
-			alert(userid);
-			if(userid == ''){
-				alert("로그인 후 작성 가능합니다.");
-				return;
-			}
-		}
-		</script>
 		<div class="reply">
 			<div class="modal fade" id="reply">
 				<div class="modal-dialog modal-xl modal-dialog-scrollable">
 					<div class="modal-content">
 						<!-- Modal Header -->
 						<div class="px-3 py-3 d-flex flex-column flex-sm-row justify-content-sm-between">
-							<h3>헬스케어 투자</h3>
-							<p>항균,항바이러스 효과를 갖는 발아관련 아이템</p>
+							<h3>${list.project_name}</h3>
+							<p>${list.title}</p>
 						</div>
 						<!-- Modal body -->
 						<div class="modal-body">
@@ -99,38 +89,34 @@
 										<img src="${path}/images/profile.png" class="rounded-circle">
 									</div>
 									<div class="d-flex flex-column flex-sm-row">
-										<div>TEST**</div>
+										<div id="board_userid"></div>
 										<div class="pl-sm-2">
-											<p>개인 회원 / 일반 투자자</p>
+											<p id="board_writer_grade"></p>
 										</div>
 									</div>
 								</div>
 								<div class="pl-2">
-									<p>2020.4.21 16:45</p>
+									<p id="board_append_date"></p>
 								</div>
 							</div>
 							<div class="px-1 p-sm-3 contents">
 								<div class="d-flex justify-content-between align-items-center py-3 subject">
-									<h2>투자를 검토하며 궁금한 사항이 있습니다.</h2>
+									<h2 id="board_title"></h2>
 									<div class="btn-group">
 										<button type="button" class="btn btn-light">수정</button>
 										<button type="button" class="btn btn-light">삭제</button>
 									</div>
 								</div>
-								<div class="py-3 px-0">
-									<p>최근 와디즈에서도 현재 펀딩오픈중인 리화이트 등 세탁 O2O 업체가 많이 나와 관심을 가지고 있습니다.</p>
-									<p>리화이트는 편의점과 제휴를 맺고 있고, 런드리고는 언택트 세탁물 수거함을 설치,</p>
-									<p>늦게 퇴근을 하는 직장인들도 시간제약없이 세탁물을 수거할 수 있는 24시간 서비스를 하고있다고 들었습니다.</p>
-									<p>혹시 찬스바이찬의 세탁 서비스는 수거 과정이 어떠한가요?</p>
-									<p>또한 타 세탁 O2O 서비스 대비 찬스바이찬이 이 점에서 뛰어나다 하실 수 있는 가장 자랑하실 수 있는 부분은 어떤것 인가요?</p>
+								<div class="py-3 px-0" id="board_content">
+									
 								</div>
 							</div>
 							<div class="py-3 row justify-content-center align-items-center like">
 								<button type="button" title="동의해요" data-flag="like" onclick="like()">
-									<i class="far fa-thumbs-up fa-2x"></i><br>2
+									<i class="far fa-thumbs-up fa-2x"></i><br><span id="board_good"></span>
 								</button>
 								<button type="button" title="글쎄요" data-flag="dislike" onclick="unlike()">
-									<i class="far fa-thumbs-down fa-2x"></i><br>2
+									<i class="far fa-thumbs-down fa-2x"></i><br><span id="board_hate"></span>
 								</button>
 							</div>
 							<div class="px-1 px-md-4">
@@ -143,18 +129,19 @@
 									<button type="button" class="btn btn-primary mt-2 ml-auto">등록</button>
 								</div>
 							</form>
+							
 							<div class="px-1 px-md-4 comment">
 								<div class="d-flex align-items-center">
 									<a href="#company" class="d-flex align-items-center">
 										<div>
 											<img src="${path}/images/profile.png" class="rounded-circle">
 										</div>
-										<span class="ml-2 name">찬스바이찬 주식회사</span>
+										<span class="ml-2 name" id="comment_writer">찬스바이찬 주식회사</span>
 									</a>
-									<span class="ml-2 time">16시간 전</span>
+									<span class="ml-2 time" id="comment_append_date">16시간 전</span>
 								</div>
 								<div class="px-2 mt-3 d-flex justify-content-between align-items-center content">
-									<p>네 감사합니다. 열심히 하겠습니다.</p>
+									<p id="comment_title">네 감사합니다. 열심히 하겠습니다.</p>
 									<div>
 										<button type="button" class="">답글</button>
 									</div>
@@ -171,3 +158,35 @@
 		</div>
 	</section>
 </div>
+<script type="text/javascript">
+function detail_board(str){
+	$.ajax({
+	    type : 'POST',
+	    url : "${path}/fund_board/view.do?f_bno="+str,
+	    error : function(error){
+		    	alert("이미 삭제된 게시물입니다.");
+		    },
+	    success : function(data) {
+	       $("#board_userid").html(data.writer);
+	       $("#board_title").html(data.title);
+	       $("#board_content").html(data.content);
+	       $("#board_writer_grade").html(data.writer_grade);
+	       $("#board_append_date").html(data.append_date);
+	       $("#board_good").html(data.good);
+	       $("#board_hate").html(data.hate);
+	    }
+	});
+	$("#reply").modal("show");
+}
+$("#reply").on('show.bs.modal', function(){
+	   $
+	});
+function write_comment(){
+	var userid=$("#userid").val();
+	if(userid == ''){
+		alert("로그인 후 작성 가능합니다.");
+		return;
+	}
+	document.write_form1.submit();
+}
+</script>

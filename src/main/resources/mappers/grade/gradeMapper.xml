@@ -5,6 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="grade">
 	<select id="grade_check" resultType="com.example.test.model.grade.dto.GradeDTO">
-		select * from fund_board where grade=#{grade}
+		select * from grade where gno=#{grade}
 	</select>
 </mapper>

@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="view" resultType="com.example.test.model.user.dto.UserDTO">
 		select userid,passwd,username,gender,email,hp,address1,address2,
 		address3,TO_CHAR(birth_date,'YYYYMMDD') birth_date,grade,email_chk,profile_img,
-		account_chk,company_chk,coupon_chk,join_date from user1 where userid=#{userid}
+		account_chk,company_chk,coupon_chk,join_date,fund_chk from user1 where userid=#{userid}
 	</select>
 	
 	<update id="update">
@@ -79,5 +79,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get_grade" resultType="int">
 		select grade from user1 where userid=#{userid}
 	</select>
+	
+	<update id="update_fund">
+		update user1 set fund_chk=fund_chk+1 where userid=#{userid}	
+	</update>
 	
 </mapper>

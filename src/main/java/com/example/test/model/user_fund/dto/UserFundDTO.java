@@ -12,8 +12,16 @@ public class UserFundDTO {
 	private String company_name;
 	private int unit;
 	private int count;
+	private int discount;
 	private int now_fund;
 	private Date buy_date;
+	
+	public int getDiscount() {
+		return discount;
+	}
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
 	public int getU_bno() {
 		return u_bno;
 	}
@@ -78,6 +86,7 @@ public class UserFundDTO {
 	public String toString() {
 		return "UserFundDTO [u_bno=" + u_bno + ", bno=" + bno + ", userid=" + userid + ", grade=" + grade
 				+ ", project_name=" + project_name + ", company_name=" + company_name + ", unit=" + unit + ", count="
-				+ count + ", now_fund=" + now_fund + ", buy_date=" + buy_date + "]";
-	}	
+				+ count + ", discount=" + discount + ", now_fund=" + now_fund + ", buy_date=" + buy_date + "]";
+	}
+	
 }

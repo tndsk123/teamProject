@@ -86,5 +86,9 @@ public class FundServiceImpl implements FundService {
 	public List<FundDTO> like_fund(String bno) throws Exception {
 		return fundDao.like_fund(bno);
 	}
+	@Override
+	public void buy_fund(int bno, int now_fund) throws Exception {
+		fundDao.buy_fund(bno, now_fund);
+	}
 
 }

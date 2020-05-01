@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.test.controller.user_like.User_likeController;
 import com.example.test.model.fund.dto.FundDTO;
 import com.example.test.model.like.dto.Like_FundDTO;
 import com.example.test.model.user.dto.UserDTO;
+import com.example.test.service.account.AccountService;
+import com.example.test.service.coupon.CouponService;
+import com.example.test.service.coupon.User_couponService;
 import com.example.test.service.fund.FundService;
 import com.example.test.service.fund_board.Fund_BoardService;
 import com.example.test.service.like.Like_FundService;
+import com.example.test.service.user.UserService;
 
 @Controller
 @RequestMapping("fund/*")
@@ -30,6 +33,12 @@ public class FundController {
 	Like_FundService like_fundService;
 	@Inject
 	Fund_BoardService boardService;
+	@Inject
+	UserService userService;
+	@Inject
+	AccountService accountService;
+	@Inject
+	User_couponService couponService;
 	
 	@RequestMapping("apply_project.do")
 	public String apply_project() {
@@ -76,13 +85,15 @@ public class FundController {
 	
 	@RequestMapping("buy/{bno}")
 	public ModelAndView buy(@PathVariable("bno") int bno, ModelAndView mav, HttpSession session) throws Exception{
-		String userid=(String)session.getAttribute("userid");
-		/*
-		 * UserDTO user_view=userService.user_view(userid); int
-		 * grade=user_view.getGrade(); mav.addObject("user_info", user_view);
-		 * mav.addObject("list", boardService.view(bno)); mav.addObject("grade",
-		 * gradeService.grade_check(grade)); mav.setViewName("board/buy");
-		 */
+		String userid=(String)session.getAttribute("userid");		
+		UserDTO user_view=userService.user_view(userid);
+		int grade=user_view.getGrade();
+		mav.addObject("user_account", accountService.account_list(userid));
+		mav.addObject("user_info", user_view);
+		mav.addObject("list", fundService.view(bno, session));
+		mav.addObject("grade",userService.get_grade(userid));
+		mav.addObject("coupon", couponService.view(userid));
+		mav.setViewName("invest_buy/invest_buy");		
 		return mav;
 	}
 	
@@ -102,4 +113,5 @@ public class FundController {
 		fundService.like(bno, session);
 		return "redirect:/fund/invest_detail/"+bno;
 	}
+	
 }

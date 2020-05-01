@@ -16,13 +16,19 @@ public class UserDTO {
 	private String address3;
 	private int grade;
 	private int email_chk;
-	private int account_chk;
+	private int account_chk;	
+	private int fund_chk;
 	private int company_chk;
 	private int coupon_chk;
 	private Date join_date;
 	private String profile_img;
 	
-	
+	public int getFund_chk() {
+		return fund_chk;
+	}
+	public void setFund_chk(int fund_chk) {
+		this.fund_chk = fund_chk;
+	}
 	public String getProfile_img() {
 		return profile_img;
 	}
@@ -130,8 +136,8 @@ public class UserDTO {
 		return "UserDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", gender=" + gender
 				+ ", birth_date=" + birth_date + ", hp=" + hp + ", email=" + email + ", address1=" + address1
 				+ ", address2=" + address2 + ", address3=" + address3 + ", grade=" + grade + ", email_chk=" + email_chk
-				+ ", account_chk=" + account_chk + ", company_chk=" + company_chk + ", coupon_chk=" + coupon_chk
-				+ ", join_date=" + join_date + ", profile_img=" + profile_img + "]";
+				+ ", account_chk=" + account_chk + ", fund_chk=" + fund_chk + ", company_chk=" + company_chk
+				+ ", coupon_chk=" + coupon_chk + ", join_date=" + join_date + ", profile_img=" + profile_img + "]";
 	}
 	
 	
