@@ -1,20 +1,27 @@
 package com.example.test.controller.fund;
 
+import java.io.File;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.test.model.company.dto.CompanyDTO;
 import com.example.test.model.fund.dto.FundDTO;
 import com.example.test.model.like.dto.Like_FundDTO;
 import com.example.test.model.user.dto.UserDTO;
 import com.example.test.service.account.AccountService;
-import com.example.test.service.coupon.CouponService;
+import com.example.test.service.company.CompanyService;
 import com.example.test.service.coupon.User_couponService;
 import com.example.test.service.fund.FundService;
 import com.example.test.service.fund_board.Fund_BoardService;
@@ -39,23 +46,69 @@ public class FundController {
 	AccountService accountService;
 	@Inject
 	User_couponService couponService;
+	@Inject
+	CompanyService companyService;
+	@Resource(name="uploadPath_company")
+	String uploadPath_company;
 	
 	@RequestMapping("apply_project.do")
 	public String apply_project() {
 		return "project_write/apply_project";
 	}
+	@RequestMapping("append_project.do")
+	public String append_project() {
+		return "project_write/append_project";
+	}
+	@RequestMapping("companyinformation.do")
+	public String companyinformation() {
+		return "project_write/companyinformation";
+	}
+	@RequestMapping("project_info.do")
+	public String project_info() {
+		return "project_write/project_info";
+	}
+	@RequestMapping("project_coreinfo.do")
+	public String project_coreinfo() {
+		return "project_write/project_coreinfo";
+	}
+	@RequestMapping("append_company.do")
+	public ModelAndView append_company(@ModelAttribute CompanyDTO dto) throws Exception{
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("project_write/append_project");
+		System.out.println(dto);
+		//companyService.insert(dto, session);
+		return mav;
+	}
+	String uploadFile(String originalName, byte[] fileData) throws Exception {
+		UUID uid=UUID.randomUUID();
+		String savedName=uid.toString()+"_"+originalName;
+		File target=new File(uploadPath_company, savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+	}
 	
 	@RequestMapping("bond_list.do")
-	public String bond_list() {
-		return "invest/bond/bond_list";
+	public ModelAndView bond_list() throws Exception {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("invest/bond/bond_list");
+		mav.addObject("invest_list", fundService.investList());
+		mav.addObject("open_invest_list", fundService.open_investList());
+		return mav;
 	}
 	@RequestMapping("stock_list.do")
-	public String stock_list() {
-		return "invest/stock/stock_list";
+	public ModelAndView stock_list() throws Exception {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("stock_list", fundService.stockList());
+		mav.addObject("open_stock_list", fundService.open_stockList());
+		mav.setViewName("invest/stock/stock_list");
+		return mav;
 	}
-	@RequestMapping("comming_soon_list.do")
-	public String comming_soon_list() {
-		return "invest/commingsoon/comming_soon_list";
+	@RequestMapping("comming_soon_list.do") 
+	public ModelAndView comming_soon_list() throws Exception{
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("invest/commingsoon/comming_soon_list");
+		mav.addObject("open_list", fundService.openList());
+		return mav;
 	}
 	
 	@RequestMapping("invest_detail/{bno}")
@@ -100,9 +153,9 @@ public class FundController {
 	@RequestMapping("invest.do")
 	public ModelAndView invest_list(ModelAndView mav) throws Exception{
 		mav.addObject("support_list", fundService.supportList());
-		mav.addObject("cnt_list", fundService.viewcntList());
-		mav.addObject("good_list", fundService.likeList());
-		mav.addObject("today_list", fundService.todayList());
+		mav.addObject("open_list", fundService.openList());
+		mav.addObject("stock_list", fundService.stockList());
+		mav.addObject("invest_list", fundService.investList());
 		mav.setViewName("invest/invest_list");
 		return mav;
 	}

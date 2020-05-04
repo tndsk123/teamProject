@@ -166,7 +166,7 @@ $(function() {
                 <h2 class="h3 mb-3 text-black">쿠폰 등록</h2>
                 <div class="p-3 p-lg-5 border">
                   
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+                  <label for="c_code" class="text-black mb-3">쿠폰을 선택하세요</label>
                   <div class="input-group w-75">
                    <select class="form-control" id="coupon_check" name="coupon_check">
 										<c:forEach var="var" items="${coupon}">
@@ -224,16 +224,16 @@ $(function() {
 
                   <div class="form-group">
                   	<form action="${path}/user_fund/buy.do" method="post" name="buy_fund_form">
-                  	<input type="text" name="bno" value="${list.bno}">
-                  	<input type="text" name="grade" value="${user_info.grade}">
-                  	<input type="text" name="unit" value="${list.unit}">
-                  	<input type="text" name="company_name" value="${list.company_name}">
-                  	<input type="text" name="project_name" value="${list.project_name}">
-                  	<input type="text" name="count" id="fund_count" value="">
-                  	<input type="text" name="discount" id="discount" value="0">
-                  	<input type="text" name="now_fund" id="fund_now_fund" value="">
-                  	<input type="text" name="cno" id="fund_account_bank" value="">
-                  	<input type="text" name="cou_no" id="cou_no" value="0">
+                  	<input type="hidden" name="bno" value="${list.bno}">
+                  	<input type="hidden" name="grade" value="${user_info.grade}">
+                  	<input type="hidden" name="unit" value="${list.unit}">
+                  	<input type="hidden" name="company_name" value="${list.company_name}">
+                  	<input type="hidden" name="project_name" value="${list.project_name}">
+                  	<input type="hidden" name="count" id="fund_count" value="">
+                  	<input type="hidden" name="discount" id="discount" value="0">
+                  	<input type="hidden" name="now_fund" id="fund_now_fund" value="">
+                  	<input type="hidden" name="cno" id="fund_account_bank" value="">
+                  	<input type="hidden" name="cou_no" id="cou_no" value="0">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnBuy">Order</button>
                     </form>
                   </div>

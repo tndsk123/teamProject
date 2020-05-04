@@ -18,7 +18,7 @@
 	</div>
 	<nav class="navbar navbar-default navbar-expand-sm" data-toggle="sticky-onscroll">
 		<div class="container">
-			<a class="navbar-brand" href="${path}"><i class="fa fa-magnet fa-spin"></i> IFU</a>
+			<a class="navbar-brand" href="${path}"><i class="fa fa-magnet"></i> IFU</a>
 			<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>

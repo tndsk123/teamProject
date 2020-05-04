@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="company">
+	<insert id="insert">
+		insert into company(com_no,company_name,c_division,company_num,ceo,found_date,greeting,sectors,c_value,
+		employee,logo,email,address1,address2,address3,homepage,manager)
+		values(seq_com_no.nextval,#{company_name},#{c_division},#{company_num},#{ceo},#{found_date},#{greeting},
+		#{sectors},#{c_value},#{employee},#{logo},#{email},#{address1},#{address2},#{address3},#{homepage},#{manager})
+	</insert>
+</mapper>

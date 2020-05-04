@@ -22,10 +22,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mav) throws Exception{
 		logger.info("메인페이지 실행");
-		mav.addObject("support_list", fundService.supportList());
-		mav.addObject("cnt_list", fundService.viewcntList());
-		mav.addObject("good_list", fundService.likeList());
+		mav.addObject("cnt_list", fundService.supportList());
+		mav.addObject("stock_list", fundService.stockList());
+		mav.addObject("invest_list", fundService.investList());
 		mav.addObject("today_list", fundService.todayList());
+		mav.addObject("support_list", fundService.supportList());
 		mav.setViewName("home");
 		return mav;
 	}

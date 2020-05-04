@@ -13,8 +13,16 @@
 			<h3>핵심포인트</h3>
 		</div>
 		<div class="ex-contents">
-			<div>
+			<!-- <div>
 				<p>등록된 기업소개가 없습니다.</p>
+			</div> -->
+			<div>
+				<img src="${path}/img/project/${list.project_name}/${list.content_point_img}">
+			</div>
+			<div>
+				<h4 class="py-3 font-weight-bold">핵심포인트</h4>
+				<p>${list.content_point_title}</p>
+				<p>${list.content_point}</p>
 			</div>
 		</div>
 	</div>
@@ -23,8 +31,15 @@
 			<h3>비즈니스 전략</h3>
 		</div>
 		<div class="ex-contents">
-			<div>
+			<!-- <div>
 				<p>등록된 내용이 없습니다.</p>
+			</div> -->
+			<div>
+				<img src="${path}/img/project/${list.project_name}/${list.content_business_img}">
+			</div>
+			<div>
+				<p>${list.content_business_title}</p>
+				<p>${list.content_business}</p>
 			</div>
 		</div>
 	</div>
@@ -33,8 +48,15 @@
 			<h3>상세내용</h3>
 		</div>
 		<div class="ex-contents">
-			<div>
+			<!-- <div>
 				<p>등록된 상세 내용이 없습니다.</p>
+			</div> -->
+			<div>
+				<img src="${path}/img/project/${list.project_name}/${list.content_detail_img}">
+			</div>
+			<div>
+				<p>${list.content_detail_title}</p>
+				<p>${list.content_detail}</p>
 			</div>
 		</div>
 	</div>

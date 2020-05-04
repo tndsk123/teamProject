@@ -43,13 +43,13 @@ function end_invest(){
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<img src="${path}/img/${list.title_img}">
+								<img src="${path}/img/project/${list.project_name}/${list.title_img}">
 							</div>
 							<div class="swiper-slide">
-								<img src="${path}/img/${list.title_img2}">
+								<img src="${path}/img/project/${list.project_name}/${list.title_img2}">
 							</div>
 							<div class="swiper-slide">
-								<img src="${path}/img/${list.title_img3}">
+								<img src="${path}/img/project/${list.project_name}/${list.title_img3}">
 							</div>
 						</div>
 						<!-- Add Pagination -->

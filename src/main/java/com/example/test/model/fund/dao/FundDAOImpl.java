@@ -31,10 +31,34 @@ public class FundDAOImpl implements FundDAO {
 	public List<FundDTO> viewcntList() throws Exception {
 		return session.selectList("fund.viewcntList");
 	}
+	@Override
+	public List<FundDTO> progressList() throws Exception {
+		return session.selectList("fund.progressList");
+	}
 
 	@Override
 	public List<FundDTO> todayList() throws Exception {
 		return session.selectList("fund.todayList");
+	}
+	@Override
+	public List<FundDTO> investList() throws Exception {
+		return session.selectList("fund.investList");
+	}
+	@Override
+	public List<FundDTO> open_investList() throws Exception {
+		return session.selectList("fund.open_investList");
+	}
+	@Override
+	public List<FundDTO> open_stockList() throws Exception {
+		return session.selectList("fund.open_stockList");
+	}
+	@Override
+	public List<FundDTO> openList() throws Exception {
+		return session.selectList("fund.openList");
+	}
+	@Override
+	public List<FundDTO> stockList() throws Exception {
+		return session.selectList("fund.stockList");
 	}
 	@Override
 	public void increateViewcnt(int bno) throws Exception {

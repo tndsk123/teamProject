@@ -43,6 +43,9 @@
 	<beans:bean id="uploadPath_user" class="java.lang.String">
 		<beans:constructor-arg value="C:/spring_img/user_profile/" />
 	</beans:bean>
+	<beans:bean id="uploadPath_company" class="java.lang.String">
+		<beans:constructor-arg value="C:/spring_img/company_logo/" />
+	</beans:bean>
 	
 	<!-- interceptor 설정 -->
 	<beans:bean id="loginInterceptor" class="com.example.test.interceptor.LoginInterceptor"/>

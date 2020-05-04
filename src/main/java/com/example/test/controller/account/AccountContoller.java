@@ -54,4 +54,13 @@ public class AccountContoller {
 		mav.addObject("list", accountService.account_list(userid));
 		return mav;
 	}
+	
+	@RequestMapping("mypageaccountbankinfo.do")
+	public ModelAndView mypageaccountbankinfo(int cno) {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("account/mypageaccountbankinfo");
+		mav.addObject("list", accountService.view(cno));
+		return mav;
+	}
+	
 }

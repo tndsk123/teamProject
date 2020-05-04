@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class CompanyDTO {
 
-	private int cno;
+	private int com_no;
 	private String company_name;
 	private String ceo;
+	private String c_division;
 	private int employee;
-	private Date found_date;
+	private String found_date;
 	private Date append_date;
 	private String greeting;
-	private Date open_date;
 	private String company_num;
 	private String logo;
 	private int c_value;
@@ -23,11 +23,12 @@ public class CompanyDTO {
 	private String homepage;
 	private String manager;
 	private int approve;
-	public int getCno() {
-		return cno;
+	
+	public int getCom_no() {
+		return com_no;
 	}
-	public void setCno(int cno) {
-		this.cno = cno;
+	public void setCom_no(int com_no) {
+		this.com_no = com_no;
 	}
 	public String getCompany_name() {
 		return company_name;
@@ -41,16 +42,22 @@ public class CompanyDTO {
 	public void setCeo(String ceo) {
 		this.ceo = ceo;
 	}
+	public String getC_division() {
+		return c_division;
+	}
+	public void setC_division(String c_division) {
+		this.c_division = c_division;
+	}
 	public int getEmployee() {
 		return employee;
 	}
 	public void setEmployee(int employee) {
 		this.employee = employee;
 	}
-	public Date getFound_date() {
+	public String getFound_date() {
 		return found_date;
 	}
-	public void setFound_date(Date found_date) {
+	public void setFound_date(String found_date) {
 		this.found_date = found_date;
 	}
 	public Date getAppend_date() {
@@ -64,12 +71,6 @@ public class CompanyDTO {
 	}
 	public void setGreeting(String greeting) {
 		this.greeting = greeting;
-	}
-	public Date getOpen_date() {
-		return open_date;
-	}
-	public void setOpen_date(Date open_date) {
-		this.open_date = open_date;
 	}
 	public String getCompany_num() {
 		return company_num;
@@ -139,12 +140,12 @@ public class CompanyDTO {
 	}
 	@Override
 	public String toString() {
-		return "CompanyDTO [cno=" + cno + ", company_name=" + company_name + ", ceo=" + ceo + ", employee=" + employee
-				+ ", found_date=" + found_date + ", append_date=" + append_date + ", greeting=" + greeting
-				+ ", open_date=" + open_date + ", company_num=" + company_num + ", logo=" + logo + ", c_value="
-				+ c_value + ", sectors=" + sectors + ", email=" + email + ", address1=" + address1 + ", address2="
-				+ address2 + ", address3=" + address3 + ", homepage=" + homepage + ", manager=" + manager + ", approve="
-				+ approve + "]";
+		return "CompanyDTO [com_no=" + com_no + ", company_name=" + company_name + ", ceo=" + ceo + ", c_division="
+				+ c_division + ", employee=" + employee + ", found_date=" + found_date + ", append_date=" + append_date
+				+ ", greeting=" + greeting + ", company_num=" + company_num + ", logo=" + logo + ", c_value=" + c_value
+				+ ", sectors=" + sectors + ", email=" + email + ", address1=" + address1 + ", address2=" + address2
+				+ ", address3=" + address3 + ", homepage=" + homepage + ", manager=" + manager + ", approve=" + approve
+				+ "]";
 	}
-
+	
 }

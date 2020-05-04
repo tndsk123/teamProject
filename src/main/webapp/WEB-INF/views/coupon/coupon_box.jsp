@@ -27,6 +27,8 @@
 
 .jumbotron {
 	box-shadow: 0 2px 30px rgba(0, 0, 0, .15);
+	height: 100%;
+	line-height: 18px;
 	color: rgba(0, 0, 0, .84);
 	font-size: 14px;
 	font-weight: 400;
@@ -55,6 +57,7 @@
 	background: none;
 	font-size: 30px;
 	font-weight: 700;
+	margin-top: 20px;
 }
 
 .funingname {
@@ -66,7 +69,7 @@
 
 .fundingcouponmoney {
 	margin: 4px 0 8px;
-	line-height: 18px;
+	line-height: 28px;
 	color: #3359cc;
 	font-size: 21px;
 	font-weight: 700;
@@ -86,6 +89,7 @@
     font-weight: 700;
     margin-bottom: 10px;	
 }
+
 </style>
 <script type="text/javascript">
 function id_check(data){
@@ -115,6 +119,7 @@ function id_check(data){
 			</div>
 		</div>
 	</div>
+	<div>
 	<div class="container">
 			<div class="row mt-5">
 				<h1 class="coupontitle">쿠폰</h1>
@@ -131,7 +136,7 @@ function id_check(data){
 			</div>
 			<c:forEach var="var" items="${list}">
 				<div class="row mt-5">
-					<div class="col-md-8 col-sm-4">
+					<div class="col-md-8">
 						<div class="jumbotron" style="background-color: #fff;">
 							<p class="funingname">${var.c_division}</p>
 							<p>${var.coupon_name}</p>
@@ -144,13 +149,12 @@ function id_check(data){
 							</p>
 						</div>
 					</div>
-					<div class="col-md-2 col-sm-2">
-						<div class="jumbotron containerDownloaditem" style="background-color: #ff4d4d;">
+					<div class="col-md-4">
+						<div class="jumbotron containerDownloaditem" style="background-color: #ff4d4d; width: 200px;">
 							<h1>
 								<i class="fa fa-download"></i>
 							</h1>
 							<button class="CouponDwonload-btn" onclick="id_check(${var.cou_no})">쿠폰받기</button>
-							<input type="hidden" id="user_id" value="${sessionScope.userid}">
 						</div>
 					</div>
 				</div>
@@ -169,6 +173,8 @@ function id_check(data){
 				</div>
 			</div>
 		</div>
+	</div>
+	<input type="hidden" id="user_id" value="${sessionScope.userid}">
 	<%@ include file="../include/frame/site-footer.jsp"%>
 </body>
 </html>

@@ -15,7 +15,7 @@
 		<div class="banner-inner">
 			<p class="summary">Seed부터 Pre IPO까지</p>
 			<h1 class="title">IFU에서<br>투자유치를 시작하세요</h1>
-			<button type="button" class="arrow-btn banner-btn" onclick="apply_project();">
+			<button type="button" class="arrow-btn banner-btn" onclick="location.href='${path}/fund/append_project.do'">
 				<span>투자유치 신청하기</span>
 			</button>
 			<p class="desc">Seed 부터 Series A/B/C, Pre IPO까지<br>기업의 성장 단계에 적합한 투자자를 만나세요</p>

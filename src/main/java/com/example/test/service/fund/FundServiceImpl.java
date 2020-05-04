@@ -35,10 +35,34 @@ public class FundServiceImpl implements FundService {
 	public List<FundDTO> viewcntList() throws Exception {
 		return fundDao.viewcntList();
 	}
+	@Override
+	public List<FundDTO> progressList() throws Exception {
+		return fundDao.progressList();
+	}
 
 	@Override
 	public List<FundDTO> todayList() throws Exception {
 		return fundDao.todayList();
+	}
+	@Override
+	public List<FundDTO> investList() throws Exception {
+		return fundDao.investList();
+	}
+	@Override
+	public List<FundDTO> open_investList() throws Exception {
+		return fundDao.open_investList();
+	}
+	@Override
+	public List<FundDTO> open_stockList() throws Exception {
+		return fundDao.open_stockList();
+	}
+	@Override
+	public List<FundDTO> openList() throws Exception {
+		return fundDao.openList();
+	}
+	@Override
+	public List<FundDTO> stockList() throws Exception {
+		return fundDao.stockList();
 	}
 	@Override
 	@Transactional

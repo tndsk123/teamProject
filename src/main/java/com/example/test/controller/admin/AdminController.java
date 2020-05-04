@@ -29,7 +29,7 @@ public class AdminController {
 		String result=Adminservice.login(dto);		
 		ModelAndView mav=new ModelAndView();
 		if(pwEncoder.matches(dto.getPasswd(), result)) {
-			mav.setViewName("redirect:/");
+			mav.setViewName("admin/admin_home");
 			session.setAttribute("userid", dto.getUserid());
 		}else {
 			mav.setViewName("user/login");

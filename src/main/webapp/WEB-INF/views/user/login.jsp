@@ -37,6 +37,7 @@ $(function(){
 	<div id="logreg-forms">
 		<form class="form-signin" method="post" name="form1">
 			<h1 class="h3 mb-3 font-weight-normal" style="text-align: center">로그인</h1>
+			<span style="float: right;">관리자로그인<input type="radio" name="admin" id="admin"></span>
 			<div class="input-group">
 				<input type="text" id="userid" name="userid" class="form-control" placeholder="아이디" >
 			</div>
@@ -50,8 +51,9 @@ $(function(){
 					<i class="fa fa-sign-in-alt"></i>로그인
 				</button>
 			</div>
-			<div class="input-group mt-3" style="text-align: center;">
+			<div class="input-group text-center mt-3">
 				<a href="${path}/user/looking_for.do">아이디/비밀번호 찾기</a>
+			
 			</div>
 			<hr>
 			<c:if test="${message == 'error' }">

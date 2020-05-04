@@ -18,62 +18,22 @@
 				<h3>오픈예정</h3>
 			</div>
 			<div class="row contents">
+			 	<c:forEach var="row" items="${open_list}">
 				<div class="col-lg-3">
-					<a href="#">
+					<a href="${path}/fund/invest_detail/${row.bno}">
 						<div class="row align-items-center">
 							<div class="col-lg-12 col-sm-4 col-12 cs-thumb">
-								<img src="${path}/images/portfolio-img1.jpg">
+								<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 							</div>
 							<div class="col-lg-12 col-sm-8 col-12 summary">
-								<p><strong>방위산업투자ㅣ19년 매출 약57억ㅣ방산업체 계약 지속 수주</strong></p>
-								<p>5월 초 오픈예정</p>
-								<p>월드티엔에스</p>
+								<p><strong>${row.title}</strong></p>
+								<p>오픈예정</p>
+								<p>${row.company_name}</p>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3">
-					<a href="#">
-						<div class="row align-items-center">
-							<div class="col-lg-12 col-sm-4 col-12 cs-thumb">
-								<img src="${path}/images/portfolio-img1.jpg">
-							</div>
-							<div class="col-lg-12 col-sm-8 col-12 summary">
-								<p><strong>방위산업투자ㅣ19년 매출 약57억ㅣ방산업체 계약 지속 수주</strong></p>
-								<p>5월 초 오픈예정</p>
-								<p>월드티엔에스</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-3">
-					<a href="#">
-						<div class="row align-items-center">
-							<div class="col-lg-12 col-sm-4 col-12 cs-thumb">
-								<img src="${path}/images/portfolio-img1.jpg">
-							</div>
-							<div class="col-lg-12 col-sm-8 col-12 summary">
-								<p><strong>방위산업투자ㅣ19년 매출 약57억ㅣ방산업체 계약 지속 수주</strong></p>
-								<p>5월 초 오픈예정</p>
-								<p>월드티엔에스</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-3">
-					<a href="#">
-						<div class="row align-items-center">
-							<div class="col-lg-12 col-sm-4 col-12 cs-thumb">
-								<img src="${path}/images/portfolio-img1.jpg">
-							</div>
-							<div class="col-lg-12 col-sm-8 col-12 summary">
-								<p><strong>방위산업투자ㅣ19년 매출 약57억ㅣ방산업체 계약 지속 수주</strong></p>
-								<p>5월 초 오픈예정</p>
-								<p>월드티엔에스</p>
-							</div>
-						</div>
-					</a>
-				</div>
+			 </c:forEach>
 			</div>
 		</div>
 	</section>

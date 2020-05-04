@@ -44,12 +44,12 @@
 						<!-- 조회순 -->
 					</div>
 					<div class="row">
-					 <c:forEach var="row" items="${cnt_list}" begin="0" end="4">
+					 <c:forEach var="row" items="${cnt_list}" begin="0" end="5">
 						<div class="col-md-4">
 							<a href="${path}/fund/invest_detail/${row.bno}">
 								<div>
 									<div class="how-project-thumb">
-										<img src="${path}/img/${row.title_img}">
+										<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 									</div>
 									<div>
 										<p>${row.title}</p>
@@ -64,7 +64,6 @@
 				<div class="col-xl-5 col-md-12">
 					<div class="mainpage-subject">
 						<h3>실시간 랭킹</h3>
-						<!-- 좋아요순 -->
 					</div>
 					<ul class="nav nav-tabs lank-tabs" role="tablist">
 						<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#stock">주식</a></li>
@@ -72,7 +71,7 @@
 					</ul>
 					<div class="tab-content">
 						<div id="stock" class="container tab-pane active">
-						 <c:forEach var="row" items="${good_list}" begin="0" end="4"  varStatus="vs">
+						 <c:forEach var="row" items="${stock_list}" begin="0" end="4"  varStatus="vs">
 							<div class="lank">
 								<a href="${path}/fund/invest_detail/${row.bno}">
 									<div class="row align-items-center">
@@ -82,7 +81,7 @@
 												<p><span class="percentage">${row.progress}%</span>주식</p>
 											</div>
 											<div class="col-3 col-md-2 col-lg-3 lank-thumb">
-												<img src="${path}/img/${row.title_img}">
+												<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 											</div>
 									</div>
 								</a>
@@ -90,7 +89,7 @@
 						 </c:forEach>
 						</div>
 						<div id="bond" class="container tab-pane fade">
-						 <c:forEach var="row" items="${good_list}" begin="0" end="4" varStatus="vs">
+						 <c:forEach var="row" items="${invest_list}" begin="0" end="4" varStatus="vs">
 							<div class="lank">
 								<a href="${path}/fund/invest_detail/${row.bno}">
 									<div class="row align-items-center">	
@@ -100,7 +99,7 @@
 												<p><span class="percentage">${row.progress}%</span>주식</p>
 											</div>
 											<div class="col-3 col-md-2 col-lg-3 lank-thumb">
-												<img src="${path}/img/${row.title_img}">
+												<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 											</div>
 									</div>
 								</a>
@@ -123,11 +122,11 @@
 				</div>
 			</div>
 			<div class="row to-contents">
-			 <c:forEach var="row" items="${support_list}" begin="0" end="5">
+			 <c:forEach var="row" items="${today_list}" begin="0" end="7">
 				<div class="col-md-3 col-6">
 					<a href="${path}/fund/invest_detail/${row.bno}">
 						<div class="to-thumb">
-							<img src="${path}/img/${row.title_img}">
+							<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 							<div class="to-overlay">
 								<div class="to-item">
 									<p>[${row.progress}%]${row.title}<p>
@@ -148,7 +147,7 @@
     <c:forEach var="row" items="${cnt_list}" begin="0" end="3">
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="box">
-        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/${row.title_img}" ></a>
+        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/project/${row.project_name}/${row.title_img}" ></a>
       </div>
       <div>
       	<c:choose>
@@ -175,7 +174,7 @@
     <c:forEach var="row" items="${good_list}" begin="0" end="3">
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="box">
-        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/${row.title_img}" ></a>
+        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/project/${row.project_name}/${row.title_img}" ></a>
       </div>
       <div>
       	<p>${row.s_division}</p>
@@ -193,7 +192,7 @@
     <c:forEach var="row" items="${support_list}" begin="0" end="2">
     <div class="col-xs-12 col-sm-4">
       <div class="box">
-        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/${row.title_img}" ></a>
+        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/project/${row.project_name}/${row.title_img}" ></a>
       </div>
       <div>
       	<p>${row.s_division}</p>
@@ -211,7 +210,7 @@
     <c:forEach var="row" items="${today_list}" begin="0" end="3">
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="box">
-        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/${row.title_img}" ></a>
+        <a href="${path}/fund/view/${row.bno}"><img class="img-fluid" alt="" src="${path}/img/project/${row.project_name}/${row.title_img}" ></a>
       </div>
       <div>
       	<p>${row.s_division}</p>

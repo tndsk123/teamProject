@@ -135,14 +135,20 @@ function handleImgFileSelect(e) {
 		  		<div class="col-sm" style="border-right: 1px solid #cccccc;">
 		  			<p class="tier">등급</p>
 		  			<p><span class="second-tier">${dto.grade}등급</span></p>
-		  			<a href="#">등급상향 요청하기</a>
+		  			<a href="#">
+		  				<p>등급상향</p>
+		  				<p>요청하기</p>
+		  			</a>
 		  		</div>
 		  		<div class="col-sm" style="border-right: 1px solid #cccccc;">
 		  			<p class="tier">쿠폰</p>
 		  			<c:choose>
 		  				<c:when test="${dto.coupon_chk == 0}">
-		  					<span class="second-tier">쿠폰이 없습니다.</span>
-		  					<a href="${path}/coupon/coupon_box.do">쿠폰 이벤트 확인</a>
+		  					<p><span class="second-tier">0</span></p>
+		  					<a href="${path}/coupon/coupon_box.do">
+		  						<p>쿠폰 이벤트</p>
+		  						<p>확인</p>
+		  					</a>
 		  				</c:when>
 		  				<c:otherwise>
 		  					<p><span class="second-tier">${dto.coupon_chk}장</span></p>
@@ -167,8 +173,8 @@ function handleImgFileSelect(e) {
 		  			<p class="tier">좋아요<i class="fa fa-heart"></i></p>
 		  			<c:choose>
 		  				<c:when test="${like_count == 0}">
-		  					<p><span class="second-tier">좋아하는 프로젝트가 없습니다.</span></p>
-		  					<a href="${path}">프로젝트 보러 가기</a>
+		  					<p><span class="second-tier">0</span></p>
+		  					<a href="${path}">프로젝트 보기</a>
 		  				</c:when>
 		  				<c:otherwise>
 		  					<p><span class="second-tier">${like_count}</span></p>

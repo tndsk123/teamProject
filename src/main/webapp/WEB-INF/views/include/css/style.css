@@ -23,7 +23,7 @@
 /* ------- 3. 공통 요소 (Common Elements) ------- */
 /* 폰트  */
 h1, h2, h3 {font-weight: 900;}
-h5 {font-weight: 600;}
+h4, h5, h6 {font-weight: 600;}
 /* 이미지 태그 반응형  */
 img {width: 100%; height: auto; vertical-align: top; display: block; margin: 0 auto;}
 /* 섹션 아티클 패딩 값  */
@@ -39,7 +39,7 @@ article {Padding: 15px 0;} /* 각 페이지 섹션 안에 박스 Top, Bottom 간
 .owl-next {right: 30px;}
 .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {color: #fff; font-size: 17px;}
 /* 커스텀 버튼  */
-.arrow-btn {border-radius: 4px; background-color:#ff9900; border: none; padding: 20px; width: 250px; line-height: 42px; transition: all 0.5s;}
+.arrow-btn {border-radius: 4px; background-color: #ff9900; border: none; padding: 20px; width: 250px; line-height: 42px; transition: all 0.5s;}
 .arrow-btn span {cursor: pointer; display: inline-block; position: relative; transition: 0.5s;}
 .arrow-btn span:after {content: '»'; position: absolute; opacity: 0; top: 0; right: -20px; transition: 0.5s;}
 .arrow-btn:hover span {padding-right: 25px;}
@@ -101,16 +101,18 @@ header .top_navigation {background: #f9f8f7; border-bottom: 1px solid #ebebeb; p
 #mainSlide .item .main-slide-contents p:last-child {font-size: 0.813em;}
 /* 이 프로젝트 어때요? */
 .how-project-thumb {padding: 15px 0;}
+.how-project-thumb img {height: 200px;}
 .how-project-summary p:first-child {margin-bottom: 3px; font-size: 0.938em;}
 .how-project-summary p:last-child {font-size: 0.813em;}
 /* 실시간 랭킹  */
 .lank-tabs {padding: 15px 0;}
 .lank {padding: 10px 0; border-bottom: 1px solid #ebebeb;}
-.lank .lank-thumb img {max-height: 120px;}
+.lank .lank-thumb img {height: 120px;}
 .lank-contents p:first-child {margin-bottom: 3px; font-size: 0.938em;}
 .lank-contents p:last-child {font-size: 0.813em;}
 /* 오늘 오픈한 프로젝트  */
 .to-contents .to-thumb {position: relative; padding: 15px 0;}
+.to-contents .to-thumb img {height: 200px;}
 .today-open .to-overlay {position: absolute; background: #222; color: #f2f2f2; top: 15px; left: 0; right: 0; bottom: 15px; width: 100%; text-align: center; opacity: 0; transition: all 0.4s ease-in-out;}
 .today-open .to-item {position: absolute; bottom: 15%; font-size: 0.938em; padding: 0 5px;}
 .today-open small {color: #f0f0f0; font-size: 10px; letter-spacing: 1px;}
@@ -167,23 +169,26 @@ header .top_navigation {background: #f9f8f7; border-bottom: 1px solid #ebebeb; p
 .invest-nav ul li a:hover {background-size: 100% 80%;}
 /* 투자 홈  */
 /* 인기 프로젝트  */
-.hot-project .contents img {max-height: 180px; }
+.hot-project .contents img {height: 180px;}
 /* 오픈예정  */
-.comming-soon .contents img {max-height: 180px;}
+.comming-soon .contents img {height: 180px;}
 .comming-soon .contents .summary P:nth-child(2) {color: #387894;}
 .comming-soon .contents .summary p:last-child {font-size: 12px; color: #90949c; letter-spacing: 0;}
 /* 주식  */
-.stock .contents img {max-height: 180px;}
+.stock .contents img {height: 180px;}
 /* 채권  */
-.bond .contents img {max-height: 180px;}
+.bond .contents img {height: 180px;}
 /* 주식 메뉴  */
 .stock-subject h2 {margin-bottom: 8px;}
 .stock-subject p {font-size: 1.063em; color: rgba(0,0,0,.84);}
-.hot-stock-project .contents img {max-height: 180px;}
+.hot-stock-project .contents img {height: 180px;}
+.stock-comming-soon .contents img {height: 180px;}
 /* 채권 메뉴  */
 .bond-subject h2 {margin-bottom: 8px;}
 .bond-subject p {font-size: 1.063em; color: rgba(0,0,0,.84);}
-.hot-bond-project .contents img {max-height: 180px;}
+.hot-bond-project .contents img {height: 180px;}
+.bond-comming-soon .contents img {height: 180px;}
+.search-menu-subject ul li {display: inline-block;}
 /* 주식 상품 상세 페이지  */
 .detail-subject {
 	padding: 3.125em 0;
@@ -229,6 +234,7 @@ header .top_navigation {background: #f9f8f7; border-bottom: 1px solid #ebebeb; p
 .stock-table-contents p a {margin-left: 5px; cursor: pointer;}
 .stock-table-contents p:first-child {font-weight: 500; color: #000;}
 .stock-table-contents p:last-child {padding-left: 0;}
+#info img {height: 300px;}
 /* 투자위험 탭  */
 .risk-contents {margin: 24 0px; font-size: 0.875em;}
 .risk-contents > div {border-top: 1px solid #f0f2f5;}
@@ -303,10 +309,11 @@ header .top_navigation {background: #f9f8f7; border-bottom: 1px solid #ebebeb; p
 	padding-top: .07em;
 	text-decoration: none;}
 /* 투자자 탭 */
-.investor-chart > div:first-child {width: 200px; margin: 0 auto;}
-.investor-chart > div:last-child {text-align: center; font-size: 0.938em;}
+.investor-chart > div:first-child {width: 200px;}
+.investor-chart > div:last-child {font-size: 0.938em;}
 #investor .investor-list img {width: 70px; height: 70px;}
 #investor .investor-list li {padding: 13px 0; line-height: 18px; box-shadow: inset 0 -1px rgba(0,0,0,.06); box-sizing: border-box;}
+
 
 /* ------- 7. 프로젝트 오픈 신청 페이지 (Apply Project Page) ------- */
 /* 폰트  */

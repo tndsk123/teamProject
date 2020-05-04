@@ -11,6 +11,12 @@ public interface FundService {
 	public List<FundDTO> likeList() throws Exception;
 	public List<FundDTO> viewcntList() throws Exception;
 	public List<FundDTO> todayList() throws Exception;
+	public List<FundDTO> investList() throws Exception;
+	public List<FundDTO> progressList() throws Exception;
+	public List<FundDTO> stockList() throws Exception;
+	public List<FundDTO> openList() throws Exception;
+	public List<FundDTO> open_investList() throws Exception;
+	public List<FundDTO> open_stockList() throws Exception;
 	public void increateViewcnt(int bno, HttpSession session) throws Exception;
 	public FundDTO view(int bno, HttpSession session) throws Exception;
 	public void like(int bno, HttpSession session);

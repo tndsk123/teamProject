@@ -4,16 +4,30 @@
 		<h3>투자자<span class="new">200</span></h3>
 	</div>
 	<div class="tab-contents">
-		<div class="investor-chart">
+		<div class="d-flex flex-column justify-content-center investor-chart">
 			<!-- 차트 -->
-			<div class="chart">
+			<div class="chart mx-auto">
 				<canvas id="chart" width="1" height="1"></canvas>
 			</div>
-			<div>
-				<p>개인 일반 <span>23명</span><small>평균 투자금액 1,753,043원</small></p>
-				<p>개인 적격 <span>0명</span><small>평균 투자금액 0원</small></p>
-				<p>개인 전문 <span>1명</span><small>평균 투자금액 1,020,000원</small></p>
-				<p>법인·투자조합 <span>0명</span><small>평균 투자금액 0원</small></p>
+			<div class="mt-2 d-flex flex-row justify-content-center font-weight-bold">
+				<div class="px-2 text-center">
+					<p class="py-1">개인 일반</p>
+					<p class="py-1">개인 적격</p>
+					<p class="py-1">개인 전문</p>
+					<p class="py-1">법인·투자조합</p>
+				</div>
+				<div class="px-2 text-right">
+					<p class="py-1">23명</p>
+					<p class="py-1">0명</p>
+					<p class="py-1">1명</p>
+					<p class="py-1">0명</p>
+				</div>
+				<div class="px-2 text-left">
+					<p class="py-1">평균 투자금액 1,753,043원</p>
+					<p class="py-1">평균 투자금액 0원</p>
+					<p class="py-1">평균 투자금액 1,020,000원</p>
+					<p class="py-1">평균 투자금액 0원</p>
+				</div>
 			</div>
 		</div>
 		<div>

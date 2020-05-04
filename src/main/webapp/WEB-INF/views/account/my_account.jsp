@@ -53,9 +53,9 @@
 		<h1 class="coupontitle">계좌조회</h1>
 		<a class="btn btn-info" style="float: right" href="${path}/account/append_account.do">계좌 추가</a>
 		<c:forEach var="var" items="${list}">
+					<a href="${path}/account/mypageaccountbankinfo.do?cno=${var.cno}">
 			<div class="row mt-5">
 				<div class="col-md-8">
-					<a href="${path}/company/mypageaccountbankinfo.do">
 						<div class="jumbotron" style="background-color: #fff;">
 							<div class="mybank_page">
 								<img src="${path}/img/bank_img/${var.account_bank}.png"
@@ -68,9 +68,9 @@
 								<fmt:formatNumber value="${var.account_money}" groupingUsed="true"/>원</p>
 							</div>
 						</div>
-					</a>
 				</div>
 			</div>
+					</a>
 		</c:forEach>
 	</div>
 	<%@ include file="../include/frame/site-footer.jsp"%>

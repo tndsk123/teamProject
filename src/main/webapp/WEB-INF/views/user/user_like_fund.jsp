@@ -45,7 +45,7 @@
 						<div class="col-md-3 col-6">
 							<a href="${path}/fund/invest_detail/${row.bno}">
 								<div class="to-thumb">
-									<img src="${path}/img/${row.title_img}">
+									<img src="${path}/img/project/${row.project_name}/${row.title_img}">
 									<div class="to-overlay">
 										<div class="to-item">
 											<p>[${row.progress}%]${row.title}
