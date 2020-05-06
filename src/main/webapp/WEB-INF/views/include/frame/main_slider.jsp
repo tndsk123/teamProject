@@ -4,7 +4,7 @@
 	 <c:forEach var="row" items="${support_list}" begin="0" end="2">
 		<div class="item">
 			<div>
-				<a href="#">
+				<a href="${path}/fund/invest_detail/${row.bno}">
 					<div class="d-flex main-slide-thum">
 						<div class="flex-fill"></div>
 						<div class="flex-fill">

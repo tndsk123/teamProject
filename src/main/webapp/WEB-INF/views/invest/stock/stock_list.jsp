@@ -76,7 +76,7 @@ article {
 		<div class="row contents">
 			<c:forEach var="row" items="${open_stock_list}">
 			<div class="col-lg-3">
-				<a href="#">
+				<a href="${path}/fund/invest_detail/${row.bno}">
 					<div class="row align-items-center">
 						<div class="col-lg-12 col-sm-4 col-12 cs-thumb">
 							<img src="${path}/img/project/${row.project_name}/${row.title_img}">
