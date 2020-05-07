@@ -12,7 +12,6 @@
 			</div>
 			<div>
 				<div>
-					select name
 					<select name="alignType">
 						<option value="recent">최신순</option>
 						<option value="old">과거순</option>

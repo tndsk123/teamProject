@@ -27,6 +27,7 @@ import com.example.test.service.fund.FundService;
 import com.example.test.service.fund_board.Fund_BoardService;
 import com.example.test.service.like.Like_FundService;
 import com.example.test.service.user.UserService;
+import com.example.test.service.user_fund.UserFundService;
 
 @Controller
 @RequestMapping("fund/*")
@@ -42,6 +43,8 @@ public class FundController {
 	Fund_BoardService boardService;
 	@Inject
 	UserService userService;
+	@Inject
+	UserFundService userfundService;
 	@Inject
 	AccountService accountService;
 	@Inject
@@ -126,7 +129,7 @@ public class FundController {
 		mav.setViewName("invest/detail/invest_detail");
 		mav.addObject("fund_board", boardService.list(bno));
 		mav.addObject("list", dto);
-		
+		mav.addObject("user_fund", userfundService.company_fund(bno));
 		/*
 		 * mav.addObject("grade", boardgradeService.list(bno)); mav.addObject("company",
 		 * companyService.view(dto.getCompany_name())); mav.addObject("comment",

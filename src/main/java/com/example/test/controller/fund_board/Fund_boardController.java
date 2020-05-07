@@ -39,8 +39,6 @@ public class Fund_boardController {
 //		ModelAndView mav=new ModelAndView();
 //		mav.addObject("dto", boardService.view(f_bno));
 //		mav.addObject("comment", commentService.list(f_bno));
-		System.out.println(f_bno);
-		System.out.println(boardService.view(f_bno));
 		return boardService.view(f_bno);
 	}
 	

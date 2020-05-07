@@ -46,86 +46,17 @@
 			</div>
 			<div>
 				<ul class="investor-list">
+				 <c:forEach var="var" items="${user_fund}">
 					<li class="row investor-info d-flex align-items-center">
 						<div class="col-xl-1 col-sm-2 col-3">
 							<img src="${path}/images/profile.png" class="rounded-circle">
 						</div>
 						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
+							<span><strong>${var.userid}</strong>님이 <fmt:formatNumber value="${var.now_fund}" groupingUsed="true"/>원 투자합니다.</span><br> 
+							<span><fmt:formatDate value="${var.buy_date}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
 						</div>
 					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
-					<li class="row investor-info d-flex align-items-center">
-						<div class="col-xl-1 col-sm-2 col-3">
-							<img src="${path}/images/profile.png" class="rounded-circle">
-						</div>
-						<div class="col-xl-11 col-sm-10 col-9">
-							<span><strong>TEST**</strong>님이 1,020,000원 투자합니다.</span><br> <span>2020/04/23 14:40:24</span>
-						</div>
-					</li>
+				 </c:forEach>
 				</ul>
 			</div>
 		</div>

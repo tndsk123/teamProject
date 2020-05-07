@@ -48,9 +48,6 @@
 							<button type="button" title="비동의" data-flag="dislike" onclick="unlike()">
 								<i class="far fa-thumbs-down"></i><br>${var.hate}
 							</button>
-							<button type="button">
-								<span>댓글</span>555
-							</button>
 						</div>
 					</div>
 				</div>
@@ -72,6 +69,8 @@
 				</div>
 			</form>
 		</div>
+		
+		
 		<div class="reply">
 			<div class="modal fade" id="reply">
 				<div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -89,9 +88,9 @@
 										<img src="${path}/images/profile.png" class="rounded-circle">
 									</div>
 									<div class="d-flex flex-column flex-sm-row">
-										<div id="board_userid"></div>
+										<div id="board_userid">${dto.writer}</div>
 										<div class="pl-sm-2">
-											<p id="board_writer_grade"></p>
+											<p id="board_writer_grade">${dto.writer_grade}</p>
 										</div>
 									</div>
 								</div>
@@ -161,10 +160,10 @@
 <script type="text/javascript">
 function detail_board(str){
 	$.ajax({
-	    type : 'POST',
+	    type : 'get',
 	    url : "${path}/fund_board/view.do?f_bno="+str,
 	    error : function(error){
-		    	alert("이미 삭제된 게시물입니다.");
+		    	alert("이미 삭제된 게시물입니다.");			       
 		    },
 	    success : function(data) {
 	       $("#board_userid").html(data.writer);
@@ -174,13 +173,11 @@ function detail_board(str){
 	       $("#board_append_date").html(data.append_date);
 	       $("#board_good").html(data.good);
 	       $("#board_hate").html(data.hate);
-	    }
-	});
-	$("#reply").modal("show");
+	    } 		   
+	});	
+	 $("#reply").modal("show");
 }
-$("#reply").on('show.bs.modal', function(){
-	   $
-	});
+
 function write_comment(){
 	var userid=$("#userid").val();
 	if(userid == ''){

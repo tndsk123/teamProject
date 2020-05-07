@@ -11,4 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="fund_view" resultType="com.example.test.model.user_fund.dto.UserFundDTO">
 		select * from user_fund where userid=#{userid}
 	</select>
+	<select id="company_view" resultType="com.example.test.model.user_fund.dto.UserFundDTO">
+		select * from user_fund where bno=#{bno}
+	</select>
 </mapper>
