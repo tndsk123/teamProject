@@ -35,5 +35,9 @@ public class UserFundServiceImpl implements UserFundService {
 	public List<UserFundDTO> company_fund(int bno) {
 		return dao.company_fund(bno);
 	}
+	@Override
+	public int count(int bno) {
+		return dao.count(bno);
+	}
 
 }

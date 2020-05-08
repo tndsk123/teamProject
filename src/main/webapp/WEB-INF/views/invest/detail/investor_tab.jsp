@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <section class="tab-pane fade" id="investor" role="tabpanel" aria-labelledby="investor-tab">
 	<div class="tab-subject">
-		<h3>투자자<span class="new">200</span></h3>
+		<h3>투자자<span class="new">${support_count}</span></h3>
 	</div>
 	<div class="tab-contents">
 		<div class="d-flex flex-column justify-content-center investor-chart">
@@ -11,31 +11,30 @@
 			</div>
 			<div class="mt-2 d-flex flex-row justify-content-center font-weight-bold">
 				<div class="px-2 text-center">
-					<p class="py-1">개인 일반</p>
-					<p class="py-1">개인 적격</p>
-					<p class="py-1">개인 전문</p>
-					<p class="py-1">법인·투자조합</p>
+					<p class="py-1">개인 개인투자자</p>
+					<p class="py-1">개인 일반투자자</p>
+					<p class="py-1">개인 전문투자자</p>
+					<p class="py-1">기업 기업투자자</p>
 				</div>
 				<div class="px-2 text-right">
-					<p class="py-1">23명</p>
-					<p class="py-1">0명</p>
 					<p class="py-1">1명</p>
+					<p class="py-1">0명</p>
+					<p class="py-1">0명</p>
 					<p class="py-1">0명</p>
 				</div>
 				<div class="px-2 text-left">
-					<p class="py-1">평균 투자금액 1,753,043원</p>
+					<p class="py-1">평균 투자금액 198,000원</p>
 					<p class="py-1">평균 투자금액 0원</p>
-					<p class="py-1">평균 투자금액 1,020,000원</p>
+					<p class="py-1">평균 투자금액 0원</p>
 					<p class="py-1">평균 투자금액 0원</p>
 				</div>
 			</div>
 		</div>
 		<div>
 			<div class="d-flex justify-content-between">
-				<p>투자자<em>200</em>명</p>
+				<p>투자자<em>${support_count}</em>명</p>
 				<div>
 					<div>
-						select값
 						<select>
 							<option value="invest">투자순</option>
 							<option value="recent">최신순</option>

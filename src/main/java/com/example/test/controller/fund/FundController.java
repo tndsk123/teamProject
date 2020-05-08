@@ -129,6 +129,8 @@ public class FundController {
 		mav.setViewName("invest/detail/invest_detail");
 		mav.addObject("fund_board", boardService.list(bno));
 		mav.addObject("list", dto);
+		mav.addObject("fund_count", boardService.count(bno));
+		mav.addObject("support_count", userfundService.count(bno));
 		mav.addObject("user_fund", userfundService.company_fund(bno));
 		/*
 		 * mav.addObject("grade", boardgradeService.list(bno)); mav.addObject("company",

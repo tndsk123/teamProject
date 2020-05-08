@@ -47,6 +47,11 @@ function okay(item, item_count, item_sum, min_fund, max_fund, account, limit, ap
 	}
 }
 $(function() {
+	var money=$("#account_bank").val();
+	var numSelect = document.getElementById("account_bank");
+	var cno = numSelect.options[document.getElementById("account_bank").selectedIndex].getAttribute("name");
+	document.getElementById("fund_account_bank").value=cno;
+	document.getElementById("account").value=money;
 	$("#btnBuy").click(function(){
 		var now_fund = $("#now_fund").val();
 		var account = $("#account").val();
@@ -57,6 +62,7 @@ $(function() {
 		document.form1.action="${path}/board/buy_success/${list.bno}";
 		document.form1.submit();
 	});
+		
 });
 </script>
 </head>
@@ -127,7 +133,7 @@ $(function() {
               <div class="form-group row">
                 <div class="col-md-12">
               		<label for="account_bank" class="text-black">결제 계좌 <span class="text-danger">*</span></label>
-              		<select class="form-control" id="account_bank" name="account_bank" onchange="get_account()">
+              		<select class="form-control" id="account_bank" name="account_bank"  onchange="get_account()">
 										<c:forEach var="var" items="${user_account}">
                 			<option value="${var.account_money}" name="${var.cno}">${var.account_bank}</option>
                 		</c:forEach>               		

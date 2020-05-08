@@ -20,6 +20,7 @@ function end_invest(){
 	alert("투자가 종료된 상품입니다.");
 }
 
+
 </script>
 </head>
 <body>
@@ -182,9 +183,9 @@ function end_invest(){
 				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#manual" aria-controls="manual" aria-selected="false">투자설명서</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#news" aria-controls="news" aria-selected="false"> 새소식 <span class="new">5</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#feedback" aria-controls="feedback" aria-selected="false"> 피드백 <span class="new">10</span>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#feedback" aria-controls="feedback" aria-selected="false"> 피드백 <span class="new">${fund_count}</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#investor" aria-controls="investor" aria-selected="false"> 투자자 <span class="new">200</span>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#investor" aria-controls="investor" aria-selected="false"> 투자자 <span class="new">${support_count}</span>
 				</a></li>
 			</ul>
 			<div class="tab-content">

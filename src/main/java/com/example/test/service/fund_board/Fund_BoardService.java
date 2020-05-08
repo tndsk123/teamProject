@@ -11,4 +11,5 @@ public interface Fund_BoardService {
 	public void insert(Fund_BoardDTO dto);
 	public void update(Fund_BoardDTO dto);
 	public void delete(int f_bno);
+	public int count(int bno);
 }

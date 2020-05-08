@@ -9,4 +9,5 @@ public interface UserFundDAO {
 	public void fund_buy(UserFundDTO dto);
 	public List<UserFundDTO> fund_view(String userid);
 	public List<UserFundDTO> company_fund(int bno);
+	public int count(int bno);
 }

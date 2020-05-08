@@ -39,5 +39,8 @@ public class Fund_BoardServiceImpl implements Fund_BoardService {
 	public void delete(int f_bno) {
 		dao.delete(f_bno);
 	}
-
+	@Override
+	public int count(int bno) {
+		return dao.count(bno);
+	}
 }

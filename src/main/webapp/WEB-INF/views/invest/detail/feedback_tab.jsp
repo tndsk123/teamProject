@@ -2,11 +2,11 @@
 <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
 	<section>
 		<div>
-			<h3>피드백<span class="new">5</span></h3>
+			<h3>피드백<span class="new">${fund_count}</span></h3>
 		</div>
 		<div class="row justify-content-between align-items-center">
 			<div class="col-6">
-				<h5>상품에 대한 5개의 피드백이 있습니다.</h5>
+				<h5>상품에 대한 ${fund_count}개의 피드백이 있습니다.</h5>
 			</div>
 			<div class="col-sm-3 col-6 d-flex align-items-center">
 				<select name="searchType" class="form-control">

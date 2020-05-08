@@ -14,4 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="view" resultType="com.example.test.model.fund.dto.Fund_BoardDTO">
 		select * from fund_board where f_bno=#{f_bno}
 	</select>
+	<select id="count" resultType="int">
+		select count(*) from fund_board where bno=#{bno}
+	</select>
 </mapper>

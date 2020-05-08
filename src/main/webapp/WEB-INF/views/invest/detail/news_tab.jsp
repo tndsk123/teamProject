@@ -2,7 +2,7 @@
 <section class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
 	<div class="news-subject">
 		<h3>
-			새소식<span class="new">10</span>
+			새소식<span class="new">5</span>
 		</h3>
 	</div>
 	<div class="news-contents">

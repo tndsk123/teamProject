@@ -1,4 +1,3 @@
-
 $(function(){
 	//모든 공백 체크 정규식
 	var empJ = /\s/g; 
@@ -40,7 +39,7 @@ $(function(){
 		 		$('#id_check').text('4~16자의 소문자 영문, 숫자만 사용 가능합니다.');
 		 		$('#id_check').css('color', 'red');
 		 	}
-			
+	 });
 	 // 생년월일 birthJ 유효성 검사
 	   $('#user_birth').blur(function(){
 	      var dateStr = $(this).val();
@@ -196,7 +195,7 @@ $(function(){
 	         alert('입력 정보를 다시 확인하세요.')
 	      }
 	   });
-});
+
 });
 function daumZipCode() {
 	 new daum.Postcode({
@@ -246,8 +245,3 @@ function daumZipCode() {
 	     }
 	 }).open();
 }
-
-
-
-
-

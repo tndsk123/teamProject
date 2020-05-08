@@ -28,5 +28,9 @@ public class UserFundDAOImpl implements UserFundDAO {
 	public List<UserFundDTO> company_fund(int bno) {
 		return session.selectList("user_fund.company_view", bno);
 	}
+	@Override
+	public int count(int bno) {
+		return session.selectOne("user_fund.count", bno);
+	}
 
 }

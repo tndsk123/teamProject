@@ -41,5 +41,9 @@ public class Fund_BoardDAOImpl implements Fund_BoardDAO {
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	public int count(int bno) {
+		return session.selectOne("fund_board.count", bno);
+	}
 
 }

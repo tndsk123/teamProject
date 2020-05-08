@@ -72,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<select id="view" resultType="com.example.test.model.fund.dto.FundDTO">
 		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,title_img,title_img2,title_img3,
-		(end_date-sysdate) now_date, start_date,progress,viewcnt,good, limit, ceil(end_date-sysdate) open_date, approve,p_detail_division,
+		(end_date-sysdate) now_date, start_date,(now_fund/max_fund*100) progress,viewcnt,good, limit, ceil(end_date-sysdate) open_date, approve,p_detail_division,
 		content_point_title,content_point_img,content_point, content_business_title,content_business_img,content_business,sub_title,
 		content_detail_title,content_detail_img,content_detail,margin_date,margin
 		from fund where bno=#{bno} 
@@ -85,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<select id="like_fund" resultType="com.example.test.model.fund.dto.FundDTO" >
 		select bno,project_name,p_division,s_division,title,max_fund,end_date,company_name,unit,min_fund,now_fund, support,			
-		(end_date-sysdate) now_date, start_date,progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date,p_detail_division
+		(end_date-sysdate) now_date, start_date,(now_fund/max_fund*100) progress,viewcnt, good, approve, title_img, ceil(start_date-sysdate) open_date,p_detail_division
 		from fund
 		<choose>  
 			<when test='bno_list != null'>
